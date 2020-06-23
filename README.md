@@ -15,6 +15,7 @@
         <ul>
             <li>Added Git Repository</li>
             <li>Created Error Pages</li>
+            <li>Created Controller For Errors</li>
             <li>Added Styling For Error Pages</li>
         </ul>
 </ul>
