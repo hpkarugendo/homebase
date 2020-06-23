@@ -1,0 +1,32 @@
+html, body {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+}
+
+.img-header-mobile {
+    height: 15vh;
+    width: auto;
+}
+
+.home-main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    padding: 10vh 0;
+}
+
+.home-main > * {
+    padding: 2vw;
+}
+
+.home-body {
+    text-align: center;
+}
+
+.home-btn-go {
+    padding: 10vw;
+    border: 1px solid black;
+    border-radius: 50%;
+}
