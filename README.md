@@ -7,7 +7,7 @@
     <h3>Day 1</h3>
     <ul>
         <li>Created Project</li>
-        <li>Added Index File / Home Page</li>
+        <li>Added Index File / Welcome Page</li>
         <li>Added Styling</li>
         <li>Added Dark Mode</li>
     </ul>
@@ -17,6 +17,11 @@
             <li>Created Error Pages</li>
             <li>Created Controller For Errors</li>
             <li>Added Styling For Error Pages</li>
+            <li>Created Main Navigation</li>
+            <li>Styled the Navigation</li>
+            <li>Added Mobility to Navigation</li>
+            <li>Created the Home Page</li>
+            <li>Created the Main Controller</li>
         </ul>
 </ul>
 
