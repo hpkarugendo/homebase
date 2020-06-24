@@ -22,6 +22,11 @@ html, body {
     height: auto;
 }
 
+.nav-link.active {
+    text-transform: uppercase;
+    border-bottom: 2px solid #f8f9f9;
+}
+
 .img-header-mobile {
     height: 15vh;
     width: auto;
@@ -70,6 +75,10 @@ h1 {
 
 .home-btn-go:hover {
     background-color: #f8f9f9;
+}
+
+#profile-intro {
+    padding: 2vh;
 }
 
 .footer {
@@ -125,6 +134,24 @@ h1 {
     margin: 1vh 1vw;
 }
 
+.table td, .table th {
+    padding: 5px;
+    font-size: 12px;
+}
+
+tr {
+    padding: 10px;
+}
+
+th {
+   background-color: #f8f9f9;
+    color: #797d7f;
+}
+
+td {
+    color: #f8f9f9;
+}
+
 @media (min-width: 768px) {
     html, body {
         font-size: 25px;
@@ -137,6 +164,11 @@ h1 {
     .img-navbar {
         width: 50px;
         height: auto;
+    }
+
+    .table td, .table th {
+        padding: 5px;
+        font-size: 16px;
     }
 }
 
@@ -159,5 +191,10 @@ h1 {
     .img-navbar {
         width: 60px;
         height: auto;
+    }
+
+    .table td, .table th {
+        padding: 5px;
+        font-size: 24px;
     }
 }
