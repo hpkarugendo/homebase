@@ -28,6 +28,11 @@
         <li>Added Background Image to Welcome Page</li>
         <li>Added Content to Home Page</li>
         <li>Styled Home Page</li>
+        <li>Created Profile HTML File</li>
+        <li>Updated Main Controller with Profile Service</li>
+        <li>Added Introduction and Education Content to Profile Page</li>
+        <li>Created some JavaScript for Profile Page</li>
+        <li>Updated Stylesheet</li>
     </ul>
 </ul>
 
