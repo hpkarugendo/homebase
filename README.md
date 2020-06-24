@@ -23,6 +23,12 @@
             <li>Created the Home Page</li>
             <li>Created the Main Controller</li>
         </ul>
+    <h3>Day 3</h3>
+    <ul>
+        <li>Added Background Image to Welcome Page</li>
+        <li>Added Content to Home Page</li>
+        <li>Styled Home Page</li>
+    </ul>
 </ul>
 
 <h2>Technologies Used:</h2>
@@ -37,4 +43,21 @@
     <li>Font Awesome</li>
     <li>Google Fonts</li>
     <li>GIT (GitHub)</li>
+</ul>
+
+<h2>Tools Used</h2>
+<ul>
+    <li>JetBrains IntelliJ IDEA</li>
+    <li>Adobe Photoshop</li>
+    <li>Adobe Lightroom Classic</li>
+</ul>
+
+<h2>Resources</h2>
+<ul>
+    <li>Linkedin Learning</li>
+    <li>w3schools</li>
+    <li>Bootstrap</li>
+    <li>Font Awesome</li>
+    <li>CSS-TRICKS</li>
+    <li>HTML Color Codes</li>
 </ul>
