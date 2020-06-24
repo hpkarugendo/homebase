@@ -5,6 +5,13 @@ html, body {
     color: #f8f9f9;
 }
 
+#body-welcome {
+    background-image: url("/images/homebase_welcome_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .header {
     background-color: #797d7f;
     color: #f8f9f9;
@@ -18,6 +25,7 @@ html, body {
 .img-header-mobile {
     height: 15vh;
     width: auto;
+    margin-bottom: 1vh;
 }
 
 .errors {
@@ -35,32 +43,29 @@ html, body {
     margin-bottom: 30px;
 }
 
-.h1-errors {
+h1 {
     font-size: 30px;
 }
 
-.home-main {
+.welcome-main {
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-flow: column wrap;
-    justify-content: space-between;
-    padding: 10vh 0;
+    justify-content: flex-end;
+    padding: 2vh;
 }
 
-.home-main > * {
-    padding: 2vw;
-}
-
-.home-body {
+.welcome-body {
     text-align: center;
 }
 
 .home-btn-go {
-    padding: 10vw;
+    padding: 5vw;
     border: 1px solid #f8f9f9;
     border-radius: 50%;
     color: #f8f9f9;
+    margin-bottom: 20px;
 }
 
 .home-btn-go:hover {
@@ -70,7 +75,7 @@ html, body {
 .footer {
     background-color: #797d7f;
     color: #f8f9f9;
-    padding: 2vh 0;
+    padding: 20px 0;
 }
 
 .footer-p {
@@ -78,13 +83,60 @@ html, body {
     margin: 0;
 }
 
+.home-main {
+    padding-bottom: 150px;
+}
+
+.home-body {
+    padding: 1vw;
+}
+
+.home-sections {
+    border-color: #f8f9f9;
+    border-left: 2px solid;
+    margin: 2vh 0;
+    padding: 0;
+}
+
+.home-sections-bg {
+    background-image: url("/images/home_sections_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+}
+
+.home-section-links {
+    text-decoration: none;
+    color: #797d7f;
+}
+
+.home-section-links:hover {
+    text-decoration: none;
+    color: #797d7f;
+    text-transform: uppercase;
+}
+
+.home-sections-headings {
+    color: #797d7f;
+}
+
+.home-sections-paras {
+    margin: 1vh 1vw;
+}
+
 @media (min-width: 768px) {
     html, body {
         font-size: 25px;
     }
 
-    .h1-errors {
+    h1 {
         font-size: 40px;
+    }
+
+    .img-navbar {
+        width: 50px;
+        height: auto;
     }
 }
 
@@ -100,7 +152,12 @@ html, body {
         border-radius: 20px;
     }
 
-    .h1-errors {
+    h1 {
         font-size: 60px;
+    }
+
+    .img-navbar {
+        width: 60px;
+        height: auto;
     }
 }

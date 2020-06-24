@@ -8,17 +8,16 @@
     <link rel="stylesheet" th:href="@{/css/styles_dark.css}" />
     <title>Henry Patrick Karugendo Homepage</title>
 </head>
-<body>
-    <div class="home-main">
-        <div class="home-body">
+<body id="body-welcome">
+    <div class="welcome-main">
+        <div class="welcome-body">
             <img th:src="@{/images/homebase_logo_dark.png}" alt="Logo Image" class="img-header-mobile" />
         </div>
-        <div class="home-body">
-            <h1>Hi</h1>
-            <p class="home-message">My name is Henry Patrick Karugendo and you have reached my personal site! <i class="fas fa-award"></i></p>
-            <p class="home-message">Feel free to have a look around and hopefully you will find what you are looking for.</p>
+        <div class="welcome-body">
+            <p class="home-message">Hi, my name is Henry Patrick Karugendo and you have reached my personal site! <br />
+                Feel free to have a look around and hopefully you will find what you are looking for.</p>
         </div>
-        <div class="home-body">
+        <div class="welcome-body">
             <a th:href="@{/home}" class="btn home-btn-go">GO</a>
         </div>
     </div>
