@@ -37,6 +37,7 @@
     <h3>Day 4</h3>
     <ul>
         <li>Finished Profile Page</li>
+        <li>Created Mobile-Specific BG Image for Welcome Page</li>
         <li>Updated Styles Sheet</li>
     </ul>
 </ul>

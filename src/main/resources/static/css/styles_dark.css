@@ -6,7 +6,7 @@ html, body {
 }
 
 #body-welcome {
-    background-image: url("/images/homebase_welcome_bg.jpg");
+    background-image: url("/images/homebase_welcome_bg_m.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -36,11 +36,6 @@ html, body {
     padding: 2vh;
 }
 
-.welcome-main > * {
-    flex-grow: 1;
-    min-width: 100%;
-}
-
 .img-header-mobile {
     height: 30px;
     width: auto;
@@ -53,11 +48,12 @@ html, body {
 .welcome-body {
     display: flex;
     justify-content: center;
-    text-align: center;
+    align-content: space-between;
 }
 
-#welcome-p {
-    align-self: flex-end;
+#welcome-link {
+    justify-content: center;
+    align-content: flex-end;
 }
 
 .home-btn-go {
@@ -187,6 +183,10 @@ td {
         font-size: 25px;
     }
 
+    #body-welcome {
+        background-image: url("/images/homebase_welcome_bg.jpg");
+    }
+
     .img-header-mobile {
         height: 40px;
         width: auto;
@@ -229,11 +229,21 @@ td {
         width: auto;
     }
 
+    .welcome-body {
+        justify-content: flex-start;
+    }
+
+    #welcome-link {
+        justify-content: center;
+        align-content: flex-end;
+    }
+
     .home-btn-go {
-        width: 400px;
-        height: 400px;
+        width: 300px;
+        height: 100px;
+        border-radius: 20px;
         font-size: 60px;
-        margin-bottom: 15vh;
+        margin-bottom: 5vh;
     }
 
     h1 {
