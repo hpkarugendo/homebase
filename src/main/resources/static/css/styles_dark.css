@@ -27,10 +27,55 @@ html, body {
     border-bottom: 2px solid #f8f9f9;
 }
 
+.welcome-main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    padding: 2vh;
+}
+
+.welcome-main > * {
+    flex-grow: 1;
+    min-width: 100%;
+}
+
 .img-header-mobile {
-    height: 15vh;
+    height: 30px;
     width: auto;
-    margin-bottom: 1vh;
+}
+
+.welcome-text {
+    font-weight: normal;
+}
+
+.welcome-body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#welcome-p {
+    align-self: flex-end;
+}
+
+.home-btn-go {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #f8f9f9;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 20px;
+    color: #f8f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8vh;
+}
+
+.home-btn-go:hover {
+    background-color: #f8f9f9;
 }
 
 .errors {
@@ -50,31 +95,6 @@ html, body {
 
 h1 {
     font-size: 30px;
-}
-
-.welcome-main {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-end;
-    padding: 2vh;
-}
-
-.welcome-body {
-    text-align: center;
-}
-
-.home-btn-go {
-    padding: 5vw;
-    border: 1px solid #f8f9f9;
-    border-radius: 50%;
-    color: #f8f9f9;
-    margin-bottom: 20px;
-}
-
-.home-btn-go:hover {
-    background-color: #f8f9f9;
 }
 
 #profile-intro {
@@ -127,6 +147,7 @@ h1 {
 }
 
 .home-sections-headings {
+    font-size: 20px;
     color: #797d7f;
 }
 
@@ -152,13 +173,38 @@ td {
     color: #f8f9f9;
 }
 
+.tree-pills {
+    padding: 5px;
+}
+
+.tree-pill {
+    display: inline;
+
+}
+
 @media (min-width: 768px) {
     html, body {
         font-size: 25px;
     }
 
+    .img-header-mobile {
+        height: 40px;
+        width: auto;
+    }
+
+    .home-btn-go {
+        width: 150px;
+        height: 150px;
+        font-size: 40px;
+        margin-bottom: 4vh;
+    }
+
     h1 {
         font-size: 40px;
+    }
+
+    .home-sections-headings {
+        font-size: 30px;
     }
 
     .img-navbar {
@@ -178,14 +224,24 @@ td {
         font-weight: normal;
     }
 
+    .img-header-mobile {
+        height: 60px;
+        width: auto;
+    }
+
     .home-btn-go {
-        margin-top: 10vh;
-        padding: 10px 20px;
-        border-radius: 20px;
+        width: 400px;
+        height: 400px;
+        font-size: 60px;
+        margin-bottom: 15vh;
     }
 
     h1 {
         font-size: 60px;
+    }
+
+    .home-sections-headings {
+        font-size: 50px;
     }
 
     .img-navbar {

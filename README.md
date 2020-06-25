@@ -34,6 +34,11 @@
         <li>Created some JavaScript for Profile Page</li>
         <li>Updated Stylesheet</li>
     </ul>
+    <h3>Day 4</h3>
+    <ul>
+        <li>Finished Profile Page</li>
+        <li>Updated Styles Sheet</li>
+    </ul>
 </ul>
 
 <h2>Technologies Used:</h2>
@@ -65,4 +70,5 @@
     <li>Font Awesome</li>
     <li>CSS-TRICKS</li>
     <li>HTML Color Codes</li>
+    <li>Stack Overflow</li>
 </ul>
