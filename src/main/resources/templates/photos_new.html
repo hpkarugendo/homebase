@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/styles_dark.css}"/>
+    <title>Photos</title>
+</head>
+<body>
+<div class="header">
+    <nav class="navbar navbar-expand-sm my-navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a th:href="@{/home}"><img th:src="@{/images/homebase_logo_dark.png}" alt="Logo Image" class="img-navbar"></a>
+            </div>
+            <button class="navbar-toggler" id="menu-b" type="button" data-toggle="collapse" data-target="#my-nav" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle Navigation">
+                <span>MENU <i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="my-nav">
+                <div class="navbar-nav ml-auto">
+                    <a th:href="@{/home}" class="nav-item nav-link">Home</a>
+                    <a th:href="@{/profile}" class="nav-item nav-link">Profile</a>
+                    <a th:href="@{/projects}" class="nav-item nav-link">Projects</a>
+                    <a th:href="@{/galleries}" class="nav-item nav-link active">Galleries</a>
+                    <a th:href="@{/blog}" class="nav-item nav-link">Blog</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="photos-new-main">
+    <div class="forms">
+        <h1 class="photos-new-hs">Upload Images</h1>
+        <div th:if="${mSg}" class="alert alert-dark">
+            <p th:text="${mSg}">message</p>
+        </div>
+        <form th:action="@{'/admin/'+${galleryObject.id}+'/photos/add'}" enctype="multipart/form-data" method="post" class="form col-md-6">
+            <div class="form-group">
+                <input type="file" name="photos" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="file" name="photos" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="file" name="photos" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="file" name="photos" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="file" name="photos" class="form-control">
+            </div>
+
+            <div class="field-set form-submits">
+                <input type="submit" value="Upload" class="btn buttons">
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="fixed-bottom text-center footer">
+    <p class="footer-p">Copyright Henry Patrick Karugendo &copy;2020</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/fa70358927.js" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/js/scripts.js}"></script>
+</body>
+</html>

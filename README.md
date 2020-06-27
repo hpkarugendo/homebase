@@ -40,12 +40,32 @@
         <li>Created Mobile-Specific BG Image for Welcome Page</li>
         <li>Updated Styles Sheet</li>
     </ul>
+    <h3>Day 5</h3>
+    <ul>
+        <li>Created Main Galleries Page</li>
+        <li>Created New Gallery Form Page</li>
+        <li>Created Photo Upload Form Page</li>
+        <li>Added Spring Data JPA Support</li>
+        <li>Created Gallery POJO</li>
+        <li>Created Photo POJO</li>
+        <li>Created Repositories for Gallery</li>
+        <li>Created Repositories for Photo</li>
+        <li>Created Gallery Controller Class</li>
+        <li>Created Methods to get Galleries and Images</li>
+        <li>Created Methods to Create Galleries and Upload Images</li>
+        <li>Added Function to Save Galleries and Photos to Database</li>
+        <li>Added Function to retrieve Galleries and Photos from Database</li>
+        <li>Successfully tested the functions</li>
+        <li>Completed the HTML pages for Galleries, Gallery Form and Photo Form pages</li>
+        <li>Changed Styles a lot</li>
+    </ul>
 </ul>
 
 <h2>Technologies Used:</h2>
 <ul>
     <li>Java (Version 11)</li>
     <li>Spring Boot Framework</li>
+    <li>Spring Data JPA</li>
     <li>Maven</li>
     <li>Microsoft Azure</li>
     <li>Thymeleaf Template Engine</li>
@@ -72,4 +92,5 @@
     <li>CSS-TRICKS</li>
     <li>HTML Color Codes</li>
     <li>Stack Overflow</li>
+    <li>Spring.io Guides</li>
 </ul>

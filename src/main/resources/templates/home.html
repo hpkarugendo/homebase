@@ -10,12 +10,12 @@
 </head>
 <body>
     <div class="header">
-        <nav class="navbar bg-dark navbar-dark navbar-expand-sm">
+        <nav class="navbar navbar-expand-sm my-navbar">
             <div class="container">
                 <div class="navbar-brand">
                     <a th:href="@{/home}"><img th:src="@{/images/homebase_logo_dark.png}" alt="Logo Image" class="img-navbar"></a>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-nav" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle Navigation">
+                <button class="navbar-toggler" id="menu-b" type="button" data-toggle="collapse" data-target="#my-nav" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle Navigation">
                     <span>MENU <i class="fas fa-bars"></i></span>
                 </button>
                 <div class="collapse navbar-collapse" id="my-nav">
@@ -51,7 +51,7 @@
             </div>
             <div class="col-sm-12 home-sections" id="home-galleries">
                 <div class="col-sm-12 home-sections-bg">
-                    <h1 class="home-sections-headings"><a th:href="@{/gallaeries}" class="home-section-links">Galleries</a></h1>
+                    <h1 class="home-sections-headings"><a th:href="@{/galleries}" class="home-section-links">Galleries</a></h1>
                 </div>
                 <div class="col-sm-12">
                     <p class="home-sections-paras">Some personal photos I've taken and feel like sharing! Like from Holidays and local places etc...</p>

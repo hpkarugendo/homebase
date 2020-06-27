@@ -21,8 +21,10 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
                 return "errors/400";
             } else if(errorCode == 403){
                 return "errors/403";
-            } else if(errorCode == 404){
+            } else if(errorCode == 404) {
                 return "errors/404";
+            }else if(errorCode == 405){
+                return "errors/405";
             } else {
                 return "errors/500";
             }
