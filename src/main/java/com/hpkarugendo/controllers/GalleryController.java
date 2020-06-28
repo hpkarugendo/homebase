@@ -111,6 +111,20 @@ public class GalleryController {
         return "redirect:/galleries";
     }
 
+    @GetMapping("/galleries/{id}")
+    public String serveGallery(@PathVariable("id") int id, Model m, RedirectAttributes ra){
+        Optional<Gallery> go = gRepo.findById(id);
+
+        if(go.isPresent()){
+            Gallery g = go.get();
+            m.addAttribute("g", g);
+            return "galleries_view";
+        }
+
+        ra.addFlashAttribute("mSg", "That Gallery Is Not Found!");
+        return "redirect:/galleries";
+    }
+
     @GetMapping(value = "/db-images/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     public void serveImage(@PathVariable("id") int id, HttpServletResponse res) throws Exception {
         Optional<Photo> po = pRepo.findById(id);

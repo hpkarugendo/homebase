@@ -59,6 +59,13 @@
         <li>Completed the HTML pages for Galleries, Gallery Form and Photo Form pages</li>
         <li>Changed Styles a lot</li>
     </ul>
+    <h3>Day 6</h3>
+    <ul>
+        <li>Touched up Footer / Added Social Links</li>
+        <li>Finished Up Galleries Section</li>
+        <li>Added Projects Section</li>
+        <li>Created Projects Controller and Views</li>
+    </ul>
 </ul>
 
 <h2>Technologies Used:</h2>
