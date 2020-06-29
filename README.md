@@ -66,6 +66,16 @@
         <li>Added Projects Section</li>
         <li>Created Projects Controller and Views</li>
     </ul>
+    <h3>Day 7</h3>
+    <ul>
+        <li>Added Authentication With Spring Security</li>
+        <li>Created UserDetails, Security Config, Data Generator and User Repository Classes</li>
+        <li>Implemented UserDetails Service</li>
+        <li>Added BCrypt Support</li>
+        <li>Tested with In-Memory and Database User Details</li>
+        <li>Changed HTML to support logged in Users</li>
+        <li>Perfected the Forms Pages</li>
+    </ul>
 </ul>
 
 <h2>Technologies Used:</h2>
@@ -73,6 +83,8 @@
     <li>Java (Version 11)</li>
     <li>Spring Boot Framework</li>
     <li>Spring Data JPA</li>
+    <li>Spring Security</li>
+    <li>Thymeleaf Extra for Spring Security 5</li>
     <li>Maven</li>
     <li>Microsoft Azure</li>
     <li>Thymeleaf Template Engine</li>
@@ -88,6 +100,7 @@
     <li>JetBrains IntelliJ IDEA</li>
     <li>Adobe Photoshop</li>
     <li>Adobe Lightroom Classic</li>
+    <li>Google Chrome, Internet Explorer, Microsoft Edge and Mozilla Firefox</li>
 </ul>
 
 <h2>Resources</h2>

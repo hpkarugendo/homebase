@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface GalleryRepository extends CrudRepository<Gallery, Integer> {
     List<Gallery> findAllByOrderById();
+    List<Gallery> findTop5ByOrderByIdDesc();
 }

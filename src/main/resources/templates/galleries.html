@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -26,8 +26,10 @@
                     <a th:href="@{/projects}" class="nav-item nav-link">Projects</a>
                     <a th:href="@{/galleries}" class="nav-item nav-link active">Galleries</a>
                     <a th:href="@{/blog}" class="nav-item nav-link">Blog</a>
+                    <a th:href="@{/admin/dashboard}" class="nav-item nav-link">Manage</a>
                 </div>
             </div>
+
         </div>
     </nav>
 </div>
@@ -82,23 +84,25 @@
                                 <a th:href="@{'/galleries/'+${g.id}}"><h3 th:text="${g.name}" class="h3-responsive">title</h3></a>
                             </div>
                         </div>
-                        <div>
-                            <a th:href="@{'/admin/photos/new?id='+${g.id}}" class="btn buttons">Add Images</a>
-                        </div>
                     </div>
                     <!--/.Slides-->
+                </div> <!--Wrapper -->
+                <div sec:authorize="isAuthenticated()">
+                    <a th:href="@{'/admin/photos/new?id='+${g.id}}" class="btn buttons">Add Images</a>
                 </div>
             </div>
 
         </div>
-        <div class="center-me">
+        <div sec:authorize="isAuthenticated()" class="center-me">
             <a th:href="@{/admin/galleries/new}" class="btn buttons galleries-as">Create Gallery</a>
         </div>
     </div>
     <div th:if="${gYes} == false" class="container galleries-inner center-me">
         <h1 class="galleries-hs">No Galleries Yet!</h1>
-        <p class="galleries-ps">Add some galleries below!</p>
-        <a th:href="@{/admin/galleries/new}" class="btn buttons galleries-as">Create Gallery</a>  <a th:href="@{/admin/photos/new}" class="btn buttons galleries-as">Upload Photos</a>
+        <div sec:authorize="isAuthenticated()">
+            <p class="galleries-ps">Add some galleries below!</p>
+            <a th:href="@{/admin/galleries/new}" class="btn buttons galleries-as">Create Gallery</a>  <a th:href="@{/admin/photos/new}" class="btn buttons galleries-as">Upload Photos</a>
+        </div>
     </div>
 </div>
 

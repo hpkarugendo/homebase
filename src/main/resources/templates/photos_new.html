@@ -26,19 +26,20 @@
                     <a th:href="@{/projects}" class="nav-item nav-link">Projects</a>
                     <a th:href="@{/galleries}" class="nav-item nav-link active">Galleries</a>
                     <a th:href="@{/blog}" class="nav-item nav-link">Blog</a>
+                    <a th:href="@{/admin/dashboard}" class="nav-item nav-link">Manage</a>
                 </div>
             </div>
         </div>
     </nav>
 </div>
 
-<div class="photos-new-main">
-    <div class="forms">
+<div class="photos-new-main center-my-content">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
         <h1 class="photos-new-hs">Upload Images</h1>
         <div th:if="${mSg}" class="alert alert-dark">
             <p th:text="${mSg}">message</p>
         </div>
-        <form th:action="@{'/admin/'+${galleryObject.id}+'/photos/add'}" enctype="multipart/form-data" method="post" class="form col-md-6">
+        <form th:action="@{'/admin/'+${galleryObject.id}+'/photos/add'}" enctype="multipart/form-data" method="post" class="form">
             <div class="form-group">
                 <input type="file" name="photos" class="form-control">
             </div>
@@ -59,7 +60,6 @@
                 <input type="submit" value="Upload" class="btn buttons">
             </div>
         </form>
-    </div>
 </div>
 
 <div class="fixed-bottom text-center footer">

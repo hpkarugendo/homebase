@@ -15,4 +15,9 @@ public class MainController {
     public String profile(){
         return "profile";
     }
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
 }
