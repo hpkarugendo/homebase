@@ -76,6 +76,12 @@
         <li>Changed HTML to support logged in Users</li>
         <li>Perfected the Forms Pages</li>
     </ul>
+    <h3>Day 3</h3>
+    <ul>
+        <li>Added images to Profile and Home Pages</li>
+        <li>Touched up on Styling</li>
+        <li>Tested site on Azure servers</li>
+    </ul>
 </ul>
 
 <h2>Technologies Used:</h2>

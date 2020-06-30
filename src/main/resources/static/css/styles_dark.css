@@ -120,8 +120,12 @@ p {
     font-size: 11px;
 }
 
-#profile-intro {
-    padding: 2vh;
+.img-profile {
+    width: 50%;
+    height: auto;
+    border: 3px solid #212121;
+    border-radius: 10px;
+    display: inline-block;
 }
 
 .footer {
@@ -163,6 +167,11 @@ p {
     border-color: #f8f9f9;
     border-left: 2px solid;
     margin: 2vh 0;
+}
+
+.home-only-sections {
+    border-bottom: 1px solid #212121;
+    border-bottom-right-radius: 10px;
 }
 
 .home-sections-bg {
@@ -207,10 +216,6 @@ p {
 }
 
 .home-sections-paras {
-    margin: 1vh 1vw;
-}
-
-.projects-sections-paras {
     margin: 1vh 1vw;
 }
 
@@ -398,11 +403,19 @@ Here we start the responsive designs!
     }
 
     h1 {
-        font-size: 40px;
+        font-size: 34px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    h3 {
+        font-size: 25px;
     }
 
     p {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .home-sections-headings, .projects-sections-headings {
@@ -427,6 +440,86 @@ Here we start the responsive designs!
         font-size: 16px;
     }
 
+    .home-only-sections {
+        height: 18vh;
+        background-size: auto 100%;
+        background-position: left;
+        background-repeat: no-repeat;
+        padding: 0;
+        margin-top: 1rem;
+    }
+
+    .home-sections-profile {
+        background-image: url("/images/homebase_home_profile.png");
+    }
+
+    .home-sections-projects {
+        background-image: url("/images/homebase_home_projects.png");
+    }
+
+    .home-sections-galleries {
+        background-image: url("/images/homebase_home_galleries.png");
+    }
+
+    .home-sections-blog {
+        background-image: url("/images/homebase_home_blog.png");
+    }
+
+    .home-only-paras {
+        margin-left: 30%;
+    }
+
+    .img-profile {
+        width: 40%;
+        height: auto;
+        border: 3px solid #212121;
+        border-radius: 10px;
+        display: inline-block;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    .card {
+        min-height: 450px;
+    }
+
+    .card-title {
+        font-size: 25px;
+    }
+
+    .card-text {
+        font-size: 17px;
+    }
+
+    .footer-link-texts {
+        display: contents;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    .img-profile {
+        width: 30%;
+        height: auto;
+        border: 3px solid #212121;
+        border-radius: 10px;
+        display: inline-block;
+    }
 
 }
 
@@ -499,7 +592,7 @@ Here we start the responsive designs!
     }
 
     .card {
-        min-height: 600px;
+        min-height: 640px;
     }
 
     .buttons-dashboard-table {

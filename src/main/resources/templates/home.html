@@ -37,36 +37,36 @@
             <div class="alert" th:if="${param.logout}">
                 You have been logged out.
             </div>
-            <div class="col-sm-12 home-sections" id="home-profile">
+            <div class="col-sm-12 home-only-sections home-sections-profile" id="home-profile">
                 <div class="col-sm-12 home-sections-bg">
                     <h1 class="home-sections-headings"><a th:href="@{/profile}" class="home-section-links">Profile</a></h1>
                 </div>
-                <div class="col-sm-12">
-                    <p class="home-sections-paras">You will find information about me here. Education, Skills and all that Professional Stuff!</p>
+                <div class="col-sm-12 home-contents home-contents-profile">
+                    <p class="home-sections-paras home-only-paras">You will find information about me here. Education, Skills and all that Professional Stuff!</p>
                 </div>
             </div>
-            <div class="col-sm-12 home-sections" id="home-projects">
+            <div class="col-sm-12 home-only-sections home-sections-projects" id="home-projects">
                 <div class="col-sm-12 home-sections-bg">
                     <h1 class="home-sections-headings"><a th:href="@{/projects}" class="home-section-links">Projects</a></h1>
                 </div>
-                <div class="col-sm-12">
-                    <p class="home-sections-paras">Here you will find some projects I've worked on myself with educational and self taught knowledge!</p>
+                <div class="col-sm-12 home-contents home-contents-projects">
+                    <p class="home-sections-paras home-only-paras">Here you will find some projects I've worked on myself with educational and self taught knowledge!</p>
                 </div>
             </div>
-            <div class="col-sm-12 home-sections" id="home-galleries">
+            <div class="col-sm-12 home-only-sections home-sections-galleries" id="home-galleries">
                 <div class="col-sm-12 home-sections-bg">
                     <h1 class="home-sections-headings"><a th:href="@{/galleries}" class="home-section-links">Galleries</a></h1>
                 </div>
-                <div class="col-sm-12">
-                    <p class="home-sections-paras">Some personal photos I've taken and feel like sharing! Like from Holidays and local places etc...</p>
+                <div class="col-sm-12 home-contents home-contents-galleries">
+                    <p class="home-sections-paras home-only-paras">Some personal photos I've taken and feel like sharing! Like from Holidays and local places etc...</p>
                 </div>
             </div>
-            <div class="col-sm-12 home-sections" id="home-blog">
+            <div class="col-sm-12 home-only-sections home-sections-blog" id="home-blog">
                 <div class="col-sm-12 home-sections-bg">
                     <h1 class="home-sections-headings"><a th:href="@{/blog}" class="home-section-links">Blog</a></h1>
                 </div>
-                <div class="col-sm-12">
-                    <p class="home-sections-paras">If I feel like sharing an opinion or just putting off some steam, I'll do it here.</p>
+                <div class="col-sm-12 home-contents home-contents-blog">
+                    <p class="home-sections-paras home-only-paras">If I feel like sharing an opinion or just putting off some steam, I'll do it here.</p>
                 </div>
             </div>
         </div>
