@@ -82,6 +82,13 @@
         <li>Touched up on Styling</li>
         <li>Tested site on Azure servers</li>
     </ul>
+    <h3>Day 9</h3>
+    <ul>
+        <li>Intensive change in Styles</li>
+        <li>Corrected Error when Viewing Image with Site Live</li>
+        <li>Fixed Dashboard Gallery Management Error</li>
+        <li>Almost Production Ready</li>
+    </ul>
 </ul>
 
 <h2>Technologies Used:</h2>
