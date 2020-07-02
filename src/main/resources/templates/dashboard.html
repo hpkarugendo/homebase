@@ -51,7 +51,7 @@
                         <tr th:each="g : ${galleryObjects}">
                             <td th:text="${g.name}">content</td>
                             <td th:text="${g.photos.size()}">content</td>
-                            <td><a href="@{'/admin/photos/new?id='+${g.id}}" class="btn buttons buttons-dashboard-table">ADD PICS</a></td>
+                            <td><a th:href="@{'/admin/photos/new?id='+${g.id}}" class="btn buttons buttons-dashboard-table">ADD PICS</a></td>
                         </tr>
                     </tbody>
                 </table>

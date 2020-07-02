@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" th:href="@{/css/styles_dark.css}"/>
-    <title>Galleries</title>
+    <link rel="stylesheet" th:href="@{/css/styles_dark.css}" />
+    <title>IMAGE VIEW</title>
 </head>
 <body>
 <div class="header">
@@ -33,17 +32,9 @@
     </nav>
 </div>
 
-<div class="container-fluid py-3 text-center gallery-main">
-    <h1 th:text="${g.name}" class="text-center gallery-title">title</h1>
-    <hr class="gallery-title-hr" />
-    <div class="row gallery-list">
-        <div class="col-xl-3 col-md-4 col-sm-6 gallery-item"  th:each="i : ${g.photos}">
-            <a th:href="@{'/galleries/images/'+${i.id}}" class="fancybox" rel="ligthbox">
-                <img  th:src="@{'/db-images/'+${i.id}}" class="img-responsive img-thumbnail gallery-img"  th:alt="${i.name}">
-            </a>
-        </div> <!-- Each Image DIV -->
-    </div> <!-- Main Row -->
-</div> <!-- Main DIV -->
+<div class="container-fluid image-main">
+    <img th:src="@{'/db-images/'+${image}}" alt="Full Image View" class="img-responsive img-view">
+</div>
 
 <div class="fixed-bottom justify-content-between px-3 footer">
     <div><p class="footer-p">Copyright Henry Patrick Karugendo &copy;2020</p></div>
@@ -54,15 +45,9 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/fa70358927.js" crossorigin="anonymous"></script>
 <script type="text/javascript" th:src="@{/js/scripts.js}"></script>
 </body>

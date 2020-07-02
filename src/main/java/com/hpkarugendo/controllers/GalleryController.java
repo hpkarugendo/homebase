@@ -123,6 +123,13 @@ public class GalleryController {
         return "redirect:/galleries";
     }
 
+    @GetMapping("/galleries/images/{id}")
+    public String viewImage(@PathVariable("id") int id, Model m){
+        m.addAttribute("image", id);
+
+        return "image-view";
+    }
+
     @GetMapping(value = "/db-images/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     public void serveImage(@PathVariable("id") int id, HttpServletResponse res) throws Exception {
         Optional<Photo> po = pRepo.findById(id);

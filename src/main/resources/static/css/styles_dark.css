@@ -2,7 +2,7 @@ html, body {
     font-family: 'Rajdhani', sans-serif;
     font-weight: 500;
     background-color: #424242;
-    color: white;
+    color: #f8f9f9;
 }
 
 #body-welcome {
@@ -106,6 +106,11 @@ html, body {
 
 h1 {
     font-size: 30px;
+    color: #cacfd2;
+}
+
+h2, h3, h4, h5 {
+    color: #cacfd2;
 }
 
 p {
@@ -157,25 +162,24 @@ p {
 }
 
 .home-sections {
-    border-color: #f8f9f9;
-    border-left: 2px solid;
     margin: 2vh 0;
     padding: 0;
 }
 
 .projects-sections {
-    border-color: #f8f9f9;
-    border-left: 2px solid;
+    padding: 0;
     margin: 2vh 0;
 }
 
 .home-only-sections {
     border-bottom: 1px solid #212121;
     border-bottom-right-radius: 10px;
+    padding: 0;
+    margin-bottom: 1rem;
 }
 
 .home-sections-bg {
-    background-image: url("/images/home_sections_bg.png");
+    background-image: url("/images/home_sections_bg_dark.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -183,7 +187,7 @@ p {
 }
 
 .projects-sections-bg {
-    background-image: url("/images/home_sections_bg.png");
+    background-image: url("/images/home_sections_bg_dark.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -192,18 +196,18 @@ p {
 
 .home-section-links {
     text-decoration: none;
-    color: #212121;
+    color: #f8f9f9;
 }
 
 .home-section-links:hover {
     text-decoration: none;
-    color: #212121;
+    color: #f8f9f9;
     text-transform: uppercase;
 }
 
 .home-sections-headings {
     font-size: 20px;
-    color: #212121;
+    color: #f8f9f9;
 }
 
 .home-sections-headings:hover {
@@ -212,7 +216,7 @@ p {
 
 .projects-sections-headings {
     font-size: 20px;
-    color: #212121;
+    color: #f8f9f9;
 }
 
 .home-sections-paras {
@@ -222,7 +226,11 @@ p {
 .card {
     margin-bottom: 1rem;
     background: none;
-    border-color: white;
+    border-color: #cacfd2;
+}
+
+.carousel-caption > a > h3 {
+    color: white;
 }
 
 .center-me {
@@ -265,6 +273,15 @@ a:hover {
     color: white;
 }
 
+table.table-bordered > thead > tr > th{
+    border-color: #212121;
+}
+
+table.table-bordered > tbody> tr > td{
+    border-color: #212121;
+    color: #cacfd2;
+}
+
 .table td, .table th {
     padding: 5px;
     font-size: 12px;
@@ -275,8 +292,8 @@ tr {
 }
 
 th {
-   background-color: #f8f9f9;
-    color: #797d7f;
+   background-color: #212121;
+    color: #f8f9f9;
 }
 
 td {
@@ -299,7 +316,7 @@ td {
 }
 
 hr {
-    border-color: #f8f9f9;
+    border-color: #212121;
     width: 80%;
 }
 
@@ -334,6 +351,7 @@ hr {
 
 .buttons-dashboard-table {
     margin: 0;
+    padding: 0;
     font-weight: normal;
     font-size: 12px;
 }
@@ -348,6 +366,25 @@ hr {
 
 .login-inner {
     margin-top: 3rem;
+}
+
+.img-view {
+    width: 80vw;
+    height: auto;
+}
+
+.image-main {
+    width: 90vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-thumbnail {
+    background-color: #212121;
+    color: #212121;
+    border: 0;
 }
 
 /*********************************************
