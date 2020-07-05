@@ -6,10 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 public class SiteAdmin implements UserDetails {
@@ -20,14 +17,25 @@ public class SiteAdmin implements UserDetails {
     @Column(unique = true)
     private String adminEmail;
     private String adminPassword;
+    private Date adminJoined;
 
     public SiteAdmin() {
+        this.adminJoined = new Date();
     }
 
     public SiteAdmin(String adminUsername, String adminEmail, String adminPassword) {
         this.adminUsername = adminUsername;
         this.adminEmail = adminEmail;
         this.adminPassword = adminPassword;
+        this.adminJoined = new Date();
+    }
+
+    public Date getAdminJoined() {
+        return adminJoined;
+    }
+
+    public void setAdminJoined(Date adminJoined) {
+        this.adminJoined = adminJoined;
     }
 
     public String getAdminId() {

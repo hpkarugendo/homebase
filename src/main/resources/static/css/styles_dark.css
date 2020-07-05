@@ -219,10 +219,6 @@ p {
     color: #f8f9f9;
 }
 
-.home-sections-paras {
-    margin: 1vh 1vw;
-}
-
 .card {
     margin-bottom: 1rem;
     background: none;
@@ -410,6 +406,10 @@ Here we start the responsive designs!
     .footer-link-texts {
         display: contents;
     }
+
+    .home-section-images {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {
@@ -484,26 +484,6 @@ Here we start the responsive designs!
         background-repeat: no-repeat;
         padding: 0;
         margin-top: 1rem;
-    }
-
-    .home-sections-profile {
-        background-image: url("/images/homebase_home_profile.png");
-    }
-
-    .home-sections-projects {
-        background-image: url("/images/homebase_home_projects.png");
-    }
-
-    .home-sections-galleries {
-        background-image: url("/images/homebase_home_galleries.png");
-    }
-
-    .home-sections-blog {
-        background-image: url("/images/homebase_home_blog.png");
-    }
-
-    .home-only-paras {
-        margin-left: 30%;
     }
 
     .img-profile {

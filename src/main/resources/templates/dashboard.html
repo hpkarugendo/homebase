@@ -36,8 +36,6 @@
     <div class="row dashboard-inner">
         <div class="col-sm-12 col-md-6 col-xl-4 dashboards">
             <h1 class="dashboards-headings">Manage Galleries</h1>
-            <hr class="dashboards-hr" />
-            <h3 class="dashboard-sub-headings">Latest Galleries</h3>
             <div th:if="${galleryObjects.size() > 0}">
                 <table class="table table-fluid table-bordered table-hover dashboard-tables">
                     <thead>
@@ -56,24 +54,52 @@
                     </tbody>
                 </table>
             </div>
-            <hr class="dashboards-hr" />
-            <p class="galleries-ps">Create Gallery</p>
             <a th:href="@{/admin/galleries/new}" class="btn buttons galleries-as">Create Gallery</a>
+            <hr class="dashboards-hr" />
         </div>
         <div class="col-sm-12 col-md-6 col-xl-4 dashboards">
             <h1 class="dashboards-headings">Manage Photos</h1>
-            <hr class="dashboards-hr" />
-            <h3 class="dashboard-sub-headings">Latest Photos</h3>
-            <hr class="dashboards-hr" />
-            <p class="galleries-ps">Upload Photos</p>
+            <div th:if="${photoObjects.size() > 0}">
+                <table class="table table-fluid table-bordered table-hover dashboard-tables">
+                    <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>ACTION</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="p : ${photoObjects}">
+                        <td th:text="${p.name}">content</td>
+                        <td><a th:href="@{'/admin/photos/delete?id='+${p.id}}" class="btn buttons buttons-dashboard-table">DELETE</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
             <a th:href="@{/admin/photos/new}" class="btn buttons galleries-as">Upload Photos</a>
+            <hr class="dashboards-hr" />
         </div>
         <div class="col-sm-12 col-md-6 col-xl-4 dashboards">
-            <h1 class="dashboards-headings">Manage Messages</h1>
+            <h1 class="dashboards-headings">Manage Users</h1>
+            <div th:if="${userObjects.size() > 0}">
+                <table class="table table-fluid table-bordered table-hover dashboard-tables">
+                    <thead>
+                    <tr>
+                        <th>USERNAME</th>
+                        <th>DATE JOINED</th>
+                        <th>ACTION</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="u : ${userObjects}">
+                        <td th:text="${u.adminUsername}">content</td>
+                        <td th:text="${u.adminJoined}">content</td>
+                        <td><a th:href="@{'/admin/users/delete?id='+${u.adminId}}" class="btn buttons buttons-dashboard-table">DELETE</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a th:href="@{/admin/users/new}" class="btn buttons">Add User</a>
             <hr class="dashboards-hr" />
-            <h3 class="dashboard-sub-headings">Latest Messages</h3>
-            <hr class="dashboards-hr" />
-
         </div>
     </div>
 </div>

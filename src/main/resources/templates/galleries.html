@@ -98,7 +98,7 @@
         </div>
     </div>
     <div th:if="${gYes} == false" class="container galleries-inner center-me">
-        <h1 class="galleries-hs">No Galleries Yet!</h1>
+        <h1 class="galleries-hs">Coming Soon!</h1>
         <div sec:authorize="isAuthenticated()">
             <p class="galleries-ps">Add some galleries below!</p>
             <a th:href="@{/admin/galleries/new}" class="btn buttons galleries-as">Create Gallery</a>  <a th:href="@{/admin/photos/new}" class="btn buttons galleries-as">Upload Photos</a>
