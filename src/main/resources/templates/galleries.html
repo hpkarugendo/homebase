@@ -57,7 +57,7 @@
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
                             <div class="view">
-                                <img class="d-block w-100" th:src="@{'/db-images/'+${g.photos[0].id}}" alt="First slide">
+                                <img class="d-block w-100" th:src="@{${g.photos[0].url}}" alt="First slide">
                                 <div class="mask rgba-black-light"></div>
                             </div>
                             <div class="carousel-caption">
@@ -67,7 +67,7 @@
                         <div class="carousel-item">
                             <!--Mask color-->
                             <div class="view">
-                                <img class="d-block w-100" th:src="@{'/db-images/'+${g.photos[1].id}}" alt="Second slide">
+                                <img class="d-block w-100" th:src="@{${g.photos[1].url}}" alt="Second slide">
                                 <div class="mask rgba-black-light"></div>
                             </div>
                             <div class="carousel-caption">
@@ -77,7 +77,7 @@
                         <div class="carousel-item">
                             <!--Mask color-->
                             <div class="view">
-                                <img class="d-block w-100" th:src="@{'/db-images/'+${g.photos[2].id}}" alt="Third slide">
+                                <img class="d-block w-100" th:src="@{${g.photos[2].url}}" alt="Third slide">
                                 <div class="mask rgba-black-light"></div>
                             </div>
                             <div class="carousel-caption">

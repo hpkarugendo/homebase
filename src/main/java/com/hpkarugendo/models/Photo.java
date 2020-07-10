@@ -4,26 +4,25 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.UUID;
 
 @Entity
 public class Photo {
     @Id
-    @GeneratedValue
-    private int id;
+    private final String id = UUID.randomUUID().toString();
     private String name;
     private String url;
-    @Column(columnDefinition = "MEDIUMBLOB")
-    private byte[] data;
 
     public Photo() {
     }
 
-    public int getId() {
-        return id;
+    public Photo(String name, String url) {
+        this.name = name;
+        this.url = url;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getId() {
+        return id;
     }
 
     public String getName() {
@@ -42,20 +41,12 @@ public class Photo {
         this.url = url;
     }
 
-    public byte[] getData() {
-        return data;
-    }
-
-    public void setData(byte[] data) {
-        this.data = data;
-    }
-
     @Override
     public String toString() {
         return "Photo{" +
-                "id=" + id +
-                ", name ='" + name + '\'' +
-                ", size ='" + getData().length/1024 + "KBs" + '\'' +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", url='" + url + '\'' +
                 '}';
     }
 }

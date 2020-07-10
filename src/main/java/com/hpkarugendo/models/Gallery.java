@@ -5,12 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class Gallery {
     @Id
-    @GeneratedValue
-    private int id;
+    private final String id = UUID.randomUUID().toString();
     private String name;
     @OneToMany
     private List<Photo> photos;
@@ -18,12 +18,17 @@ public class Gallery {
     public Gallery() {
     }
 
-    public int getId() {
-        return id;
+    public Gallery(String name) {
+        this.name = name;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Gallery(String name, List<Photo> photos) {
+        this.name = name;
+        this.photos = photos;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {
@@ -45,9 +50,9 @@ public class Gallery {
     @Override
     public String toString() {
         return "Gallery{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", photos= " + photos +
+                ", photos=" + photos +
                 '}';
     }
 }

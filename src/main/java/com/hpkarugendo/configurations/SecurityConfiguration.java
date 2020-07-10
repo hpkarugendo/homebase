@@ -13,6 +13,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private SiteAdminService siteAdminService;
+    private final String AZURE_STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=homebase3113sa;AccountKey=7i6YduiGLByA0lCdVEq6tgG/BLgtErKHn29XNWaKpolt8D19nnGzIFxm7VVbkY4E4tSTASgAgYbSweOQjE5L9g==;EndpointSuffix=core.windows.net";
+    private final String AZURE_STORAGE_CONTAINER_NAME = "homebase3113con";
 
     public SecurityConfiguration(SiteAdminService sa){
         this.siteAdminService = sa;

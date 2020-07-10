@@ -89,6 +89,21 @@
         <li>Fixed Dashboard Gallery Management Error</li>
         <li>Almost Production Ready</li>
     </ul>
+    <h3>Day 10</h3>
+    <ul>
+        <li>Did research on integrating cloud storage for Images into Spring Boot Apps</li>
+        <li>Built a test project to work with Azure Services</li>
+        <li>Tested Azure Blob Storage</li>
+        <li>Tested Azure Cosmos DB</li>
+        <li>Tested Microsoft SQL Server</li>
+    </ul>
+    <h3>Day 11</h3>
+    <ul>
+        <li>Integrated working sets into main project</li>
+        <li>Settled on SQL Server over Cosmos DB over tested performance difference and cost</li>
+        <li>Tested Main Project Uploading Images to Azure Storage and Saving to SQL Server</li>
+        <li>Almost ready for production. Happy feeling!</li>
+    </ul>
 </ul>
 
 <h2>Technologies Used:</h2>
@@ -100,6 +115,8 @@
     <li>Thymeleaf Extra for Spring Security 5</li>
     <li>Maven</li>
     <li>Microsoft Azure</li>
+    <li>Microsoft Azure Blob Storage</li>
+    <li>Microsoft SQL Server DB</li>
     <li>Thymeleaf Template Engine</li>
     <li>HTML, CSS, JavaScript</li>
     <li>Bootstrap</li>
@@ -126,4 +143,5 @@
     <li>HTML Color Codes</li>
     <li>Stack Overflow</li>
     <li>Spring.io Guides</li>
+    <li>Microsoft Azure Docs</li>
 </ul>

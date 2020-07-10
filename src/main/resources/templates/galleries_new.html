@@ -36,6 +36,9 @@
 <div class="galleries-new-main center-my-content">
     <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
         <h1 class="galleries-new-hs">Create Gallery</h1>
+        <div th:if="${mSg}" class="alert alert-dark">
+            <p th:text="${mSg}">message</p>
+        </div>
         <form th:action="@{/admin/galleries/add}" th:object="${galleryObject}" method="post" class="form">
             <input type="hidden" th:field="*{id}">
             <div class="form-group form-inputs">

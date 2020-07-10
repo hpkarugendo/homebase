@@ -4,6 +4,7 @@ import com.hpkarugendo.models.Gallery;
 import com.hpkarugendo.models.Photo;
 import com.hpkarugendo.repositories.GalleryRepository;
 import com.hpkarugendo.repositories.PhotoRepository;
+import com.hpkarugendo.services.HomebaseStorageService;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,17 +24,15 @@ import java.util.Optional;
 @Controller
 public class GalleryController {
 
-    private GalleryRepository gRepo;
-    private PhotoRepository pRepo;
+    private HomebaseStorageService storageService;
 
-    public GalleryController(GalleryRepository gRepo, PhotoRepository photoRepository) {
-        this.pRepo = photoRepository;
-        this.gRepo = gRepo;
+    public GalleryController(HomebaseStorageService storageService) {
+        this.storageService = storageService;
     }
 
     @GetMapping("/galleries")
     public String gallery(Model m){
-        List<Gallery> galleries = gRepo.findAllByOrderById();
+        List<Gallery> galleries = storageService.listGalleries();
 
         m.addAttribute("galleryObject", new Gallery());
 
@@ -58,16 +57,26 @@ public class GalleryController {
 
     @PostMapping("/admin/galleries/add")
     public String saveGallery(Gallery galleryObject, RedirectAttributes ra){
-        Gallery saved = gRepo.save(galleryObject);
+        Gallery toSave = galleryObject;
+        toSave.setName(toSave.getName().toLowerCase());
+        Gallery found = storageService.getGalleryByName(toSave.getName());
 
-        return "redirect:/admin/photos/new?id=" + saved.getId();
+        if(found == null){
+            storageService.saveGallery(toSave);
+            found = storageService.getGalleryByName(toSave.getName());
+            ra.addFlashAttribute("mSg", "GALLERY SAVED!");
+        } else {
+            ra.addFlashAttribute("mSg", "!! GALLERY ALREADY EXISTS !!");
+            return "redirect:/admin/galleries/new";
+        }
+
+        return "redirect:/admin/photos/new?id=" + found.getId();
     }
 
     @GetMapping("/admin/photos/new")
-    public String addPhotos(Model m, @RequestParam("id") int id){
-        Optional<Gallery> go = gRepo.findById(id);
+    public String addPhotos(Model m, @RequestParam("id") String id){
 
-        Gallery g = go.get();
+        Gallery g = storageService.getGalleryById(id);
 
         m.addAttribute("galleryObject", g);
 
@@ -78,27 +87,28 @@ public class GalleryController {
     public String savePhotos(@RequestParam("photos") MultipartFile[] files, @PathVariable("id") String id, RedirectAttributes ra){
         int noOfFiles = 0;
 
-        Optional<Gallery> go = gRepo.findById(Integer.valueOf(id));
+        Gallery gToSave = storageService.getGalleryById(id);
 
-        Gallery gToSave = go.get();
+        boolean ans = false;
 
-        try {
-            for(int i = 0; i < files.length; i++){
-                if(files[i].getBytes().length > 10){
+        if(gToSave != null){
+            for(int a = 0; a < files.length; a++){
+                if(files[a].getSize() > 10){
                     Photo toSave = new Photo();
-                    toSave.setName(files[i].getOriginalFilename());
-                    toSave.setData(files[i].getBytes());
-                    gToSave.getPhotos().add(pRepo.save(toSave));
+                    toSave.setName(files[a].getOriginalFilename().replace("_", ""));
+                    String url = storageService.uploadImageToContainer(gToSave.getName(), toSave.getName(), files[a]).toString();
+                    if(url != null){
+                        toSave.setUrl(url);
+                    } else {
+                        noOfFiles = 0;
+                        break;
+                    }
+                    gToSave.getPhotos().add(storageService.savePhoto(toSave));
                     noOfFiles++;
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            storageService.saveGallery(gToSave);
         }
-
-        Gallery saved = gRepo.save(gToSave);
-
-        System.out.println(saved);
 
         if(noOfFiles > 0){
             ra.addFlashAttribute("mSg", "" + noOfFiles + " FILES UPLOADED!");
@@ -110,11 +120,10 @@ public class GalleryController {
     }
 
     @GetMapping("/galleries/{id}")
-    public String serveGallery(@PathVariable("id") int id, Model m, RedirectAttributes ra){
-        Optional<Gallery> go = gRepo.findById(id);
+    public String serveGallery(@PathVariable("id") String id, Model m, RedirectAttributes ra){
+        Gallery g = storageService.getGalleryById(id);
 
-        if(go.isPresent()){
-            Gallery g = go.get();
+        if(g != null){
             m.addAttribute("g", g);
             return "galleries_view";
         }
@@ -124,21 +133,11 @@ public class GalleryController {
     }
 
     @GetMapping("/galleries/images/{id}")
-    public String viewImage(@PathVariable("id") int id, Model m){
-        m.addAttribute("image", id);
+    public String viewImage(@PathVariable("id") String id, Model m){
+        Photo photo = storageService.getPhoto(id);
+        m.addAttribute("photo", photo);
 
         return "image-view";
-    }
-
-    @GetMapping(value = "/db-images/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
-    public void serveImage(@PathVariable("id") int id, HttpServletResponse res) throws Exception {
-        Optional<Photo> po = pRepo.findById(id);
-
-        if(po.isPresent()){
-            Photo p = po.get();
-            StreamUtils.copy(p.getData(), res.getOutputStream());
-        }
-
     }
 
 
