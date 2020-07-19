@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    $(".profile-contents").hide();
 
     $(".fancybox").fancybox({
         openEffect: "none",

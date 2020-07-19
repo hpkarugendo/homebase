@@ -42,8 +42,12 @@
                     <h1 class="home-sections-headings"><a th:href="@{/profile}" class="home-section-links">Profile</a></h1>
                 </div>
                 <div class="col-sm-12 home-contents home-contents-profile">
-                    <img th:src="@{/images/homebase_home_profile.jpg}" alt="home profile image" class="home-section-images">
-                    <p class="home-sections-paras home-only-paras">You will find information about me here. Education, Skills and all that Professional Stuff!</p>
+                    <div class="col-sm-6">
+                        <a th:href="@{/profile}" class="home-section-links"><img th:src="@{/images/homebase_home_profile.jpg}" alt="home profile image" class="img img-responsive home-section-images"></a>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="home-sections-paras home-only-paras">You will find information about me here. Education, Skills and all that Professional Stuff!</p>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-12 home-only-sections home-sections-projects" id="home-projects">
@@ -51,8 +55,12 @@
                     <h1 class="home-sections-headings"><a th:href="@{/projects}" class="home-section-links">Projects</a></h1>
                 </div>
                 <div class="col-sm-12 home-contents home-contents-projects">
-                    <img th:src="@{/images/homebase_home_projects.jpg}" alt="home projects image" class="home-section-images">
-                    <p class="home-sections-paras home-only-paras">Here you will find some projects I've worked on myself with educational and self taught knowledge!</p>
+                    <div class="col-sm-6">
+                        <a th:href="@{/projects}" class="home-section-links"><img th:src="@{/images/homebase_home_projects.jpg}" alt="home projects image" class="img img-responsive home-section-images"></a>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="home-sections-paras home-only-paras">Here you will find some projects I've worked on myself with educational and self taught knowledge!</p>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-12 home-only-sections home-sections-galleries" id="home-galleries">
@@ -60,8 +68,12 @@
                     <h1 class="home-sections-headings"><a th:href="@{/galleries}" class="home-section-links">Galleries</a></h1>
                 </div>
                 <div class="col-sm-12 home-contents home-contents-galleries">
-                    <img th:src="@{/images/homebase_home_galleries.jpg}" alt="home galleries image" class="home-section-images">
-                    <p class="home-sections-paras home-only-paras">Some personal photos I've taken and feel like sharing! Like from Holidays and local places etc...</p>
+                    <div class="col-sm-6">
+                        <a th:href="@{/galleries}" class="home-section-links"><img th:src="@{/images/homebase_home_galleries.jpg}" alt="home galleries image" class="img img-responsive home-section-images"></a>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="home-sections-paras home-only-paras">Some personal photos I've taken and feel like sharing! Like from Holidays and local places etc...</p>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-12 home-only-sections home-sections-blog" id="home-blog">
@@ -69,8 +81,10 @@
                     <h1 class="home-sections-headings"><a th:href="@{/blog}" class="home-section-links">Blog</a></h1>
                 </div>
                 <div class="col-sm-12 home-contents home-contents-blog">
-                    <img th:src="@{/images/homebase_home_blog.jpg}" alt="home blog image" class="home-section-images">
-                    <p class="home-sections-paras home-only-paras">If I feel like sharing an opinion or just putting off some steam, I'll do it here.</p>
+                    <div class="col-sm-6">
+                        <a th:href="@{/blog}" class="home-section-links"><img th:src="@{/images/homebase_home_blog.jpg}" alt="home blog image" class="img home-section-images home-contents-items"></a>
+                    </div>
+                    <div class="col-sm-6"><p class="home-sections-paras home-only-paras home-contents-items">If I feel like sharing an opinion or just putting off some steam, I'll do it here.</p></div>
                 </div>
             </div>
         </div>

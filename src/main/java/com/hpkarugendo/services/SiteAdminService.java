@@ -39,4 +39,10 @@ public class SiteAdminService implements UserDetailsService {
 
         return success;
     }
+
+    public void disableUser(SiteAdmin user) {
+        SiteAdmin toDisable = user;
+        toDisable.setEnabled(false);
+        saRepo.save(toDisable);
+    }
 }

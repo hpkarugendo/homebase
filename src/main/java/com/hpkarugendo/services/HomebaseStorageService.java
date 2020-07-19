@@ -73,13 +73,14 @@ public class HomebaseStorageService {
         return containerCreated;
     }
 
-    public URI uploadImageToContainer(String container, String name, MultipartFile image){
+    public URI uploadImageToContainer(String container, MultipartFile image){
         URI uri = null;
         CloudBlockBlob blob = null;
 
-        if(name != null || !name.isEmpty() && !image.isEmpty()){
+        if(container != null || !container.isEmpty() && !image.isEmpty()){
             try {
-                blob = cloudBlobContainer.getBlockBlobReference(name);
+                cloudBlobContainer = cloudBlobClient.getContainerReference(container);
+                blob = cloudBlobContainer.getBlockBlobReference(image.getOriginalFilename().replace("_", ""));
                 blob.upload(image.getInputStream(), -1);
                 uri = blob.getUri();
             } catch (URISyntaxException e) {
@@ -260,6 +261,7 @@ public class HomebaseStorageService {
         Photo toDelete = po.get();
 
         try {
+            deleteImageFromContainer(toDelete.getGallery().getName(), toDelete.getName());
             pRepo.delete(toDelete);
             ans = true;
         } catch (Exception e) {

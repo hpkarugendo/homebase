@@ -33,6 +33,12 @@
 </div>
 
 <div class="container-fluid dashboard-main">
+    <div th:if="${mSg}" class="alert my-alert alert-dismissible my-3 fade show" role="alert">
+        <span th:text="${mSg}">message</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     <div class="row dashboard-inner">
         <div class="col-sm-12 col-md-6 col-xl-4 dashboards">
             <h1 class="dashboards-headings">Manage Galleries</h1>
@@ -42,7 +48,7 @@
                         <tr>
                             <th>NAME</th>
                             <th>PICS</th>
-                            <th>ACTION</th>
+                            <th colspan="2">ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,6 +56,7 @@
                             <td th:text="${g.name}">content</td>
                             <td th:text="${g.photos.size()}">content</td>
                             <td><a th:href="@{'/admin/photos/new?id='+${g.id}}" class="btn buttons buttons-dashboard-table">ADD PICS</a></td>
+                            <td><a th:href="@{'/admin/galleries/delete/'+${g.id}}" class="btn buttons buttons-dashboard-table">DELETE</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -64,13 +71,16 @@
                     <thead>
                     <tr>
                         <th>NAME</th>
-                        <th>ACTION</th>
+                        <th>GALLERY</th>
+                        <th colspan="2">ACTION</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="p : ${photoObjects}">
                         <td th:text="${p.name}">content</td>
-                        <td><a th:href="@{'/admin/photos/delete?id='+${p.id}}" class="btn buttons buttons-dashboard-table">DELETE</a></td>
+                        <td th:text="${p.gallery.name}">content</td>
+                        <td><a th:href="@{'/galleries/images/'+${p.id}}" class="btn buttons buttons-dashboard-table">VIEW</a></td>
+                        <td><a th:href="@{'/admin/photos/delete/'+${p.id}}" class="btn buttons buttons-dashboard-table">DELETE</a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -86,13 +96,14 @@
                     <tr>
                         <th>USERNAME</th>
                         <th>DATE JOINED</th>
-                        <th>ACTION</th>
+                        <th colspan="2">ACTION</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="u : ${userObjects}">
                         <td th:text="${u.adminUsername}">content</td>
                         <td th:text="${u.adminJoined}">content</td>
+                        <td><a th:href="@{'/admin/users/edisable/'+${u.adminId}}" th:text="${u.isEnabled() ? 'DISABLE' : 'ENABLE'}" class="btn buttons buttons-dashboard-table">DISABLE</a></td>
                         <td><a th:href="@{'/admin/users/delete?id='+${u.adminId}}" class="btn buttons buttons-dashboard-table">DELETE</a></td>
                     </tr>
                     </tbody>

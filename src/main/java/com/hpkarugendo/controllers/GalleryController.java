@@ -96,7 +96,8 @@ public class GalleryController {
                 if(files[a].getSize() > 10){
                     Photo toSave = new Photo();
                     toSave.setName(files[a].getOriginalFilename().replace("_", ""));
-                    String url = storageService.uploadImageToContainer(gToSave.getName(), toSave.getName(), files[a]).toString();
+                    toSave.setGallery(gToSave);
+                    String url = storageService.uploadImageToContainer(gToSave.getName(), files[a]).toString();
                     if(url != null){
                         toSave.setUrl(url);
                     } else {
@@ -130,6 +131,39 @@ public class GalleryController {
 
         ra.addFlashAttribute("mSg", "That Gallery Is Not Found!");
         return "redirect:/galleries";
+    }
+
+    @GetMapping("admin/galleries/delete/{id}")
+    public String deleteGallery(@PathVariable("id") String id, RedirectAttributes ra){
+        Gallery toDelete = storageService.getGalleryById(id);
+
+        if(toDelete == null){
+            ra.addFlashAttribute("mSg", "GALLERY NOT FOUND!");
+            return "redirect:/admin/dashboard";
+        }
+
+        storageService.deleteContainer(toDelete.getName());
+        storageService.deleteGallery(toDelete.getId());
+
+        ra.addFlashAttribute("mSg", "GALLERY - " + toDelete.getName() + " - DELETED!");
+
+        return "redirect:/admin/dashboard";
+    }
+
+    @GetMapping("admin/photos/delete/{id}")
+    public String deletePhoto(@PathVariable("id") String id, RedirectAttributes ra){
+        Photo toDelete = storageService.getPhoto(id);
+
+        if(toDelete == null){
+            ra.addFlashAttribute("mSg", "PHOTO NOT FOUND!");
+            return "redirect:/admin/dashboard";
+        }
+
+        storageService.deletePhoto(toDelete.getId());
+
+        ra.addFlashAttribute("mSg","PHOTO - " + toDelete.getName() + " - DELETED FROM DB AND CLOUD CONTAINER!");
+
+        return "redirect:/admin/dashboard";
     }
 
     @GetMapping("/galleries/images/{id}")

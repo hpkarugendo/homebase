@@ -1,9 +1,6 @@
 package com.hpkarugendo.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -11,14 +8,25 @@ public class Photo {
     @Id
     private final String id = UUID.randomUUID().toString();
     private String name;
+    @ManyToOne
+    private Gallery gallery;
     private String url;
 
     public Photo() {
     }
 
-    public Photo(String name, String url) {
+    public Photo(String name, Gallery gallery, String url) {
         this.name = name;
+        this.gallery = gallery;
         this.url = url;
+    }
+
+    public Gallery getGallery() {
+        return gallery;
+    }
+
+    public void setGallery(Gallery gallery) {
+        this.gallery = gallery;
     }
 
     public String getId() {
@@ -46,6 +54,7 @@ public class Photo {
         return "Photo{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", gallery=" + gallery +
                 ", url='" + url + '\'' +
                 '}';
     }

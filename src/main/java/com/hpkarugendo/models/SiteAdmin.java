@@ -18,9 +18,11 @@ public class SiteAdmin implements UserDetails {
     private String adminEmail;
     private String adminPassword;
     private Date adminJoined;
+    private boolean isEnabled;
 
     public SiteAdmin() {
         this.adminJoined = new Date();
+        this.isEnabled = true;
     }
 
     public SiteAdmin(String adminUsername, String adminEmail, String adminPassword) {
@@ -28,6 +30,7 @@ public class SiteAdmin implements UserDetails {
         this.adminEmail = adminEmail;
         this.adminPassword = adminPassword;
         this.adminJoined = new Date();
+        this.isEnabled = true;
     }
 
     public Date getAdminJoined() {
@@ -126,8 +129,14 @@ public class SiteAdmin implements UserDetails {
         return true;
     }
 
+    public void setEnabled(boolean value){
+        this.isEnabled = value;
+    }
+
     @Override
     public boolean isEnabled() {
-        return true;
+        return isEnabled;
     }
+
+
 }

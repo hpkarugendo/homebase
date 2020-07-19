@@ -1,9 +1,6 @@
 package com.hpkarugendo.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,7 +9,7 @@ public class Gallery {
     @Id
     private final String id = UUID.randomUUID().toString();
     private String name;
-    @OneToMany
+    @OneToMany(mappedBy = "gallery", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Photo> photos;
 
     public Gallery() {

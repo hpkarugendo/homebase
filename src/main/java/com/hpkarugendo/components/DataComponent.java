@@ -16,15 +16,21 @@ public class DataComponent implements CommandLineRunner {
     private SiteAdminService saService;
     private BCryptPasswordEncoder encoder;
     private HomebaseStorageService storageService;
+    private EmailComponent emailComponent;
 
-    public DataComponent(SiteAdminService saService, BCryptPasswordEncoder encoder, HomebaseStorageService storageService) {
+    public DataComponent(SiteAdminService saService, BCryptPasswordEncoder encoder, HomebaseStorageService storageService, EmailComponent emailComponent) {
         this.saService = saService;
         this.encoder = encoder;
         this.storageService = storageService;
+        this.emailComponent = emailComponent;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        String email = new String("Hi Henry Patrick\nThe Application Homebase has been started or restarted!\nIf this was not you, you best go look into it.\n\nSystem.");
+
+        emailComponent.sendMessage(null, null, "System Start", email);
 
         SiteAdmin saToSave = new SiteAdmin("masterAdmin", "master.admin@hpkarugendo.com", encoder.encode("masterAdminPass"));
 

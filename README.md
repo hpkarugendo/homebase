@@ -104,6 +104,12 @@
         <li>Tested Main Project Uploading Images to Azure Storage and Saving to SQL Server</li>
         <li>Almost ready for production. Happy feeling!</li>
     </ul>
+    <h3>Day 12</h3>
+    <ul>
+        <li>Added Spring Mail Support</li>
+        <li>Tested with a System alert email when Application is started or restarted!!</li>
+        <li>Removed properties file from git backup</li>
+    </ul>
 </ul>
 
 <h2>Technologies Used:</h2>
@@ -112,6 +118,7 @@
     <li>Spring Boot Framework</li>
     <li>Spring Data JPA</li>
     <li>Spring Security</li>
+    <li>Spring Mail</li>
     <li>Thymeleaf Extra for Spring Security 5</li>
     <li>Maven</li>
     <li>Microsoft Azure</li>

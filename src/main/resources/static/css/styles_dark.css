@@ -149,6 +149,19 @@ p {
     margin: 0;
 }
 
+.profile-nav-links {
+    background-color: #212121;
+    color: #f8f9f9;
+    font-size: 13px;
+    border-radius: 10px;
+    padding: 2px 10px;
+    margin-top: 1rem;
+}
+
+.profile-nav-links:hover {
+    color: #cacfd2;
+}
+
 .home-main {
     padding-bottom: 150px;
 }
@@ -212,6 +225,16 @@ p {
 
 .home-sections-headings:hover {
     text-transform: uppercase;
+}
+
+.home-contents {
+    display: flex;
+    flex-direction: row;
+}
+
+.home-section-images {
+    width: 100px;
+    height: auto;
 }
 
 .projects-sections-headings {
@@ -407,9 +430,15 @@ Here we start the responsive designs!
         display: contents;
     }
 
-    .home-section-images {
-        display: none;
+    .home-contents {
+        display: flex;
+        flex-direction: row;
     }
+
+    .home-contents > p {
+        font-size: 30px;
+    }
+
 }
 
 @media (min-width: 768px) {
@@ -439,6 +468,10 @@ Here we start the responsive designs!
         margin-bottom: 4vh;
     }
 
+    .home-contents > p {
+        font-size: 30px;
+    }
+
     h1 {
         font-size: 34px;
     }
@@ -459,6 +492,11 @@ Here we start the responsive designs!
         font-size: 30px;
     }
 
+    .home-section-images {
+        width: 150px;
+        height: auto;
+    }
+
     .img-navbar {
         width: 50px;
         height: auto;
@@ -477,15 +515,6 @@ Here we start the responsive designs!
         font-size: 16px;
     }
 
-    .home-only-sections {
-        height: 18vh;
-        background-size: auto 100%;
-        background-position: left;
-        background-repeat: no-repeat;
-        padding: 0;
-        margin-top: 1rem;
-    }
-
     .img-profile {
         width: 40%;
         height: auto;
@@ -494,9 +523,18 @@ Here we start the responsive designs!
         display: inline-block;
     }
 
+    .profile-nav-links {
+        font-size: 15px;
+    }
+
 }
 
 @media (min-width: 992px) {
+
+    .home-section-images {
+        width: 200px;
+        height: auto;
+    }
 
     .card {
         min-height: 450px;
@@ -536,6 +574,10 @@ Here we start the responsive designs!
         border: 3px solid #212121;
         border-radius: 10px;
         display: inline-block;
+    }
+
+    .profile-nav-links {
+        font-size: 18px;
     }
 
 }
@@ -618,5 +660,9 @@ Here we start the responsive designs!
 
     .form {
         min-width: 520px;
+    }
+
+    .profile-nav-links {
+        font-size: 25px;
     }
 }
