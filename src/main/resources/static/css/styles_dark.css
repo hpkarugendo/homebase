@@ -532,6 +532,10 @@ Here we start the responsive designs!
         font-size: 15px;
     }
 
+    .footer-link-texts {
+        display: contents;
+    }
+
 }
 
 @media (min-width: 992px) {
@@ -669,5 +673,9 @@ Here we start the responsive designs!
 
     .profile-nav-links {
         font-size: 25px;
+    }
+
+    .footer-link-texts {
+        display: contents;
     }
 }

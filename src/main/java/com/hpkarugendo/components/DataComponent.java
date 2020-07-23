@@ -28,9 +28,9 @@ public class DataComponent implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        String email = new String("Hi Henry Patrick\nThe Application Homebase has been started or restarted!\nIf this was not you, you best go look into it.\n\nSystem.");
+        //String email = new String("Hi Henry Patrick\nThe Application Homebase has been started or restarted!\nIf this was not you, you best go look into it.\n\nSystem.");
 
-        emailComponent.sendMessage(null, null, "System Start", email);
+        //emailComponent.sendMessage(null, null, "System Start", email);
 
         SiteAdmin saToSave = new SiteAdmin("masterAdmin", "master.admin@hpkarugendo.com", encoder.encode("masterAdminPass"));
 

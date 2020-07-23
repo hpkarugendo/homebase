@@ -27,6 +27,7 @@
                     <a th:href="@{/galleries}" class="nav-item nav-link active">Galleries</a>
                     <a th:href="@{/blog}" class="nav-item nav-link">Blog</a>
                     <a th:href="@{/admin/dashboard}" class="nav-item nav-link">Manage</a>
+                    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post"><button type="submit" class="btn btn-logout"><i class="fas fa-users-cog"></i> Out</button></form>
                 </div>
             </div>
 
@@ -101,7 +102,7 @@
         <h1 class="galleries-hs">Coming Soon!</h1>
         <div sec:authorize="isAuthenticated()">
             <p class="galleries-ps">Add some galleries below!</p>
-            <a th:href="@{/admin/galleries/new}" class="btn buttons galleries-as">Create Gallery</a>  <a th:href="@{/admin/photos/new}" class="btn buttons galleries-as">Upload Photos</a>
+            <a th:href="@{/admin/galleries/new}" class="btn buttons galleries-as">Create Gallery</a>
         </div>
     </div>
 </div>
