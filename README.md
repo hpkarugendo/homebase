@@ -110,6 +110,12 @@
         <li>Tested with a System alert email when Application is started or restarted!!</li>
         <li>Removed properties file from git backup</li>
     </ul>
+    <h3>Day 13</h3>
+    <ul>
+        <li>Site Is Live</li>
+        <li>Added Custom Domain</li>
+        <li>Added SSL Certificates to Custom Domain</li>
+    </ul>
 </ul>
 
 <h2>Technologies Used:</h2>
@@ -151,4 +157,5 @@
     <li>Stack Overflow</li>
     <li>Spring.io Guides</li>
     <li>Microsoft Azure Docs</li>
+    <li>SSL For Free</li>
 </ul>
