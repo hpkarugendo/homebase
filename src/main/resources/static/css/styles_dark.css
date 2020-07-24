@@ -335,8 +335,19 @@ td {
 
 }
 
+.galleries-img {
+    min-width: 100%;
+    max-height: 40vh;
+}
+
 .gallery-main {
     margin-bottom: 3rem;
+}
+
+.image-img {
+    max-width: 95vw;
+    max-height: 95vh;
+    margin: auto auto;
 }
 
 hr {
@@ -350,7 +361,11 @@ hr {
 
 .gallery-item {
     margin-top: 1rem;
+}
 
+.gallery-img {
+    max-width: 300px;
+    max-height: 240px;
 }
 
 .gallery-img:hover {
@@ -393,13 +408,12 @@ hr {
 }
 
 .img-view {
-    width: 80vw;
-    height: auto;
+    max-width: 95vw;
 }
 
 .image-main {
-    width: 90vw;
-    height: 70vh;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -536,6 +550,14 @@ Here we start the responsive designs!
         display: contents;
     }
 
+    .galleries-img {
+        max-height: 250px;
+    }
+
+    .gallery-img {
+        max-height: 225px;
+    }
+
 }
 
 @media (min-width: 992px) {
@@ -587,6 +609,15 @@ Here we start the responsive designs!
 
     .profile-nav-links {
         font-size: 18px;
+    }
+
+    .galleries-img {
+        max-height: 350px;
+    }
+
+    .gallery-img {
+        max-width: 400px;
+        max-height: 300px;
     }
 
 }
@@ -677,5 +708,14 @@ Here we start the responsive designs!
 
     .footer-link-texts {
         display: contents;
+    }
+
+    .galleries-img {
+        max-height: 500px;
+    }
+
+    .gallery-img {
+        max-width: 500px;
+        max-height: 380px;
     }
 }

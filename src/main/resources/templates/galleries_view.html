@@ -38,7 +38,7 @@
     <hr class="gallery-title-hr" />
     <div class="row gallery-list">
         <div class="col-xl-3 col-md-4 col-sm-6 gallery-item"  th:each="i : ${g.photos}">
-            <a th:href="@{'/galleries/images/'+${i.id}}" class="fancybox" rel="ligthbox">
+            <a th:href="@{'/galleries/images/'+${i.id}}" class="fancybox mx-auto" rel="ligthbox">
                 <img  th:src="@{${i.url}}" class="img-responsive img-thumbnail gallery-img"  th:alt="${i.name}">
             </a>
         </div> <!-- Each Image DIV -->
@@ -50,7 +50,7 @@
     <div>
         <a href="https://github.com/hpkarugendo" class="footer-links"><i class="fab fa-github-square"></i> <span class="footer-link-texts">github</span></a>
         <a href="https://www.facebook.com/people/Henry-Karugendo/100011283193162" class="footer-links"><i class="fab fa-facebook-square"></i> <span class="footer-link-texts">facebook</span></a>
-        <a href="www.linkedin.com/in/hpkarugendo" class="footer-links"><i class="fab fa-linkedin"></i> <span class="footer-link-texts">linkedin</span></a>
+        <a href="https://www.linkedin.com/in/hpkarugendo" class="footer-links"><i class="fab fa-linkedin"></i> <span class="footer-link-texts">linkedin</span></a>
     </div>
 </div>
 
