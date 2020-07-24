@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.hpkarugendo</groupId>
     <artifactId>homebase</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <name>homebase</name>
     <description>My Personal Website created using Spring Boot, Thymeleaf, and hosted by Microsoft Azure</description>
 
