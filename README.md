@@ -116,6 +116,12 @@
         <li>Added Custom Domain</li>
         <li>Added SSL Certificates to Custom Domain</li>
     </ul>
+    <h3>Day 14</h3>
+    <ul>
+        <li>Added SEO Tags</li>
+        <li>Added CDN Cache Support</li>
+        <li>Added Google Analytics</li>
+    </ul>
 </ul>
 
 <h2>Technologies Used:</h2>
@@ -130,6 +136,8 @@
     <li>Microsoft Azure</li>
     <li>Microsoft Azure Blob Storage</li>
     <li>Microsoft SQL Server DB</li>
+    <li>Microsoft Azure Domains</li>
+    <li>Microsoft Azure CDN</li>
     <li>Thymeleaf Template Engine</li>
     <li>HTML, CSS, JavaScript</li>
     <li>Bootstrap</li>
@@ -158,4 +166,5 @@
     <li>Spring.io Guides</li>
     <li>Microsoft Azure Docs</li>
     <li>SSL For Free</li>
+    <li>Google Analytics</li>
 </ul>
