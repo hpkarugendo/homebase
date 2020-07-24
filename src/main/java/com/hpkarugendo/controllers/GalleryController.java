@@ -97,7 +97,10 @@ public class GalleryController {
                     Photo toSave = new Photo();
                     toSave.setName(files[a].getOriginalFilename().replace("_", ""));
                     toSave.setGallery(gToSave);
-                    String url = storageService.uploadImageToContainer(gToSave.getName(), files[a]).toString();
+                    String origin = storageService.uploadImageToContainer(gToSave.getName(), files[a]).toString();
+                    String replacer = "https://homebase-3113.azureedge.net";
+                    String toReplace = origin.substring(44, origin.length());
+                    String url = replacer + toReplace;
                     if(url != null){
                         toSave.setUrl(url);
                     } else {
