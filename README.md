@@ -148,6 +148,7 @@
     <li>Font Awesome</li>
     <li>Google Fonts</li>
     <li>GIT (GitHub)</li>
+    <li>Baeldung</li>
 </ul>
 
 <h2>Tools Used</h2>
