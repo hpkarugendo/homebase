@@ -45,7 +45,7 @@
     </nav>
 </div>
 
-<div class="container-fluid pb-5 blogs-main">
+<div class="container pb-5 blogs-main">
     <div th:if="${mSg}" class="alert my-alert alert-dismissible my-3 fade show" role="alert">
         <span th:text="${mSg}">message</span>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -53,14 +53,24 @@
         </button>
     </div>
     <div th:if="${bYes} == true" class="blogs-inner">
+        <div class="row blogs-item mb-5 pt-2">
+            <div th:each="p : ${posts}" class="col-sm-12 blog-main-posts">
+                <img th:src="${p.imageUrl}" th:alt="${p.title}" class="blog-main-img">
+                <h1 th:text="${p.title}" class="text-center blogs-item-title">title</h1>
+                <p th:text="${p.exerpt}" class="blogs-item-ex">exerpt</p>
+                <p class="link-text blogs-item-link"><a th:href="@{'/blog/view/'+${p.id}}"> <i class="fas fa-external-link-alt"></i> Read More...</a></p>
+                <hr />
+            </div>
+        </div>
 
+        <a sec:authorize="isAuthenticated()" th:href="@{/admin/blog/new}" class="btn buttons galleries-as">Write Blog Post</a>
 
     </div>
     <div th:if="${bYes} == false" class="blogs-inner center-me">
         <h1 class="galleries-hs">Coming Soon!</h1>
         <div sec:authorize="isAuthenticated()">
-            <p class="galleries-ps">Add some posts below!</p>
-            <a th:href="@{/admin/blogs/new}" class="btn buttons galleries-as">Write Blog Post</a>
+            <p class="galleries-ps text-center">Add some posts below!</p>
+            <a th:href="@{/admin/blog/new}" class="btn buttons galleries-as">Write Blog Post</a>
         </div>
     </div>
 </div>

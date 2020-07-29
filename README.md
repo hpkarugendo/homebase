@@ -1,7 +1,6 @@
 <h1>Homebase</h1>
 <p>Hello and welcome to the master repository for my Personal Website.</p>
-<p>Before it goes live, I will be listing the timeline for its creation first then the timeline will be moved to the bottom of the page when it is less relevant.</p>
-<p>This information will also be made available on the site when it is finished!</p>
+<p>The Site is now live <a href="https://www.hpkarugendo.com">HERE</a></p>
 <h2>Timeline</h2>
 <ul>
     <h3>Day 1</h3>
@@ -122,6 +121,11 @@
         <li>Added CDN Cache Support</li>
         <li>Added Google Analytics</li>
     </ul>
+    <h3>Day 15</h3>
+    <ul>
+        <li>Added Blog Support</li>
+        <li>Changed some entity id types from String to Integer</li>
+    </ul>
 </ul>
 
 <h2>Technologies Used:</h2>
@@ -164,7 +168,9 @@
     <li>HTML Color Codes</li>
     <li>Stack Overflow</li>
     <li>Spring.io Guides</li>
+    <li>Thymeleaf Org</li>
     <li>Microsoft Azure Docs</li>
     <li>SSL For Free</li>
     <li>Google Analytics</li>
+    <li>Summernote Org</li>
 </ul>

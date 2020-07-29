@@ -3,11 +3,16 @@ package com.hpkarugendo.controllers;
 import com.hpkarugendo.models.Gallery;
 import com.hpkarugendo.models.Photo;
 import com.hpkarugendo.models.SiteAdmin;
+import com.hpkarugendo.repositories.BlogPostRepository;
 import com.hpkarugendo.repositories.GalleryRepository;
 import com.hpkarugendo.repositories.PhotoRepository;
 import com.hpkarugendo.repositories.SiteAdminRepository;
+import com.hpkarugendo.services.BlogPostService;
 import com.hpkarugendo.services.HomebaseStorageService;
 import com.hpkarugendo.services.SiteAdminService;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,11 +28,13 @@ public class DashboardController {
     private SiteAdminRepository uRepo;
     private HomebaseStorageService storageService;
     private SiteAdminService saService;
+    private BlogPostService postService;
 
-    public DashboardController(SiteAdminRepository uRepo, HomebaseStorageService storageService, SiteAdminService siteAdminService) {
+    public DashboardController(SiteAdminRepository uRepo, HomebaseStorageService storageService, SiteAdminService saService, BlogPostService postService) {
         this.uRepo = uRepo;
         this.storageService = storageService;
-        this.saService = siteAdminService;
+        this.saService = saService;
+        this.postService = postService;
     }
 
     @GetMapping("/admin/dashboard")
@@ -35,6 +42,21 @@ public class DashboardController {
         m.addAttribute("galleryObjects", storageService.listTop5Galleries());
         m.addAttribute("userObjects", uRepo.findAllByOrderByAdminIdDesc());
         m.addAttribute("photoObjects", storageService.listTop5Photos());
+        m.addAttribute("postObjects", postService.listTop5Posts());
+
+        Object p = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = "";
+
+        if(p instanceof UserDetails){
+             username = ((UserDetails) p).getUsername();
+        } else {
+            username = p.toString();
+        }
+
+        SiteAdmin user = saService.getUserByUsername(username);
+
+        m.addAttribute("user", user);
+
 
         return "dashboard";
     }
@@ -60,7 +82,7 @@ public class DashboardController {
     }
 
     @GetMapping("admin/users/edisable/{id}")
-    public String disableUser(@PathVariable("id") String id, RedirectAttributes ra) throws Exception {
+    public String disableUser(@PathVariable("id") int id, RedirectAttributes ra) throws Exception {
         Optional<SiteAdmin> so = uRepo.findById(id);
         SiteAdmin toDisable = so.get();
 

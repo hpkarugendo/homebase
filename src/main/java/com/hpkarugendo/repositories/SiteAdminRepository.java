@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface SiteAdminRepository extends CrudRepository<SiteAdmin, String> {
+public interface SiteAdminRepository extends CrudRepository<SiteAdmin, Integer> {
     Optional<SiteAdmin> findByAdminUsername(String username);
     List<SiteAdmin> findAllByOrderByAdminIdDesc();
+    List<SiteAdmin> findTop5ByOrderByAdminJoinedDesc();
 }

@@ -3,22 +3,25 @@ package com.hpkarugendo.models;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.*;
 
 @Entity
 public class SiteAdmin implements UserDetails {
     @Id
-    private final String adminId = UUID.randomUUID().toString();
+    @GeneratedValue
+    private int adminId;
     @Column(unique = true)
     private String adminUsername;
     @Column(unique = true)
     private String adminEmail;
     private String adminPassword;
+    private String adminFullName;
+    @Temporal(TemporalType.DATE)
     private Date adminJoined;
     private boolean isEnabled;
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<BlogPost> posts;
 
     public SiteAdmin() {
         this.adminJoined = new Date();
@@ -33,6 +36,14 @@ public class SiteAdmin implements UserDetails {
         this.isEnabled = true;
     }
 
+    public String getAdminFullName() {
+        return adminFullName;
+    }
+
+    public void setAdminFullName(String adminFullName) {
+        this.adminFullName = adminFullName;
+    }
+
     public Date getAdminJoined() {
         return adminJoined;
     }
@@ -41,8 +52,12 @@ public class SiteAdmin implements UserDetails {
         this.adminJoined = adminJoined;
     }
 
-    public String getAdminId() {
+    public int getAdminId() {
         return adminId;
+    }
+
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
     }
 
     public String getAdminUsername() {
@@ -138,5 +153,11 @@ public class SiteAdmin implements UserDetails {
         return isEnabled;
     }
 
+    public List<BlogPost> getPosts() {
+        return posts;
+    }
 
+    public void setPosts(List<BlogPost> posts) {
+        this.posts = posts;
+    }
 }

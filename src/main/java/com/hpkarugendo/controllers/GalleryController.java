@@ -5,6 +5,7 @@ import com.hpkarugendo.models.Photo;
 import com.hpkarugendo.repositories.GalleryRepository;
 import com.hpkarugendo.repositories.PhotoRepository;
 import com.hpkarugendo.services.HomebaseStorageService;
+import com.microsoft.azure.storage.StorageException;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
@@ -84,7 +86,7 @@ public class GalleryController {
     }
 
     @PostMapping("/admin/{id}/photos/add")
-    public String savePhotos(@RequestParam("photos") MultipartFile[] files, @PathVariable("id") String id, RedirectAttributes ra){
+    public String savePhotos(@RequestParam("photos") MultipartFile[] files, @PathVariable("id") String id, RedirectAttributes ra) throws URISyntaxException, StorageException {
         int noOfFiles = 0;
 
         Gallery gToSave = storageService.getGalleryById(id);
@@ -97,10 +99,7 @@ public class GalleryController {
                     Photo toSave = new Photo();
                     toSave.setName(files[a].getOriginalFilename().replace("_", ""));
                     toSave.setGallery(gToSave);
-                    String origin = storageService.uploadImageToContainer(gToSave.getName(), files[a]).toString();
-                    String replacer = "https://homebase-3113.azureedge.net";
-                    String toReplace = origin.substring(44, origin.length());
-                    String url = replacer + toReplace;
+                    String url = storageService.getSavedImageUrl(gToSave.getName(), files[a]).toString();
                     if(url != null){
                         toSave.setUrl(url);
                     } else {

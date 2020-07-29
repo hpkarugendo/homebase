@@ -28,6 +28,16 @@ public class SiteAdminService implements UserDetailsService {
         return null;
     }
 
+    public SiteAdmin getUserByUsername(String username){
+        Optional<SiteAdmin> ao = saRepo.findByAdminUsername(username);
+
+        if(ao.isPresent()){
+            return ao.get();
+        }
+
+        return null;
+    }
+
     public boolean saveUser(SiteAdmin user) throws Exception {
         boolean success = false;
 
@@ -44,5 +54,9 @@ public class SiteAdminService implements UserDetailsService {
         SiteAdmin toDisable = user;
         toDisable.setEnabled(false);
         saRepo.save(toDisable);
+    }
+
+    public void deleteAllUsers(){
+        saRepo.deleteAll();
     }
 }

@@ -50,6 +50,8 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+    <h1 th:text="${user.adminFullName}" class="display-5 text-center">user</h1>
+    <hr />
     <div class="row dashboard-inner">
         <div class="col-sm-12 col-md-6 col-xl-4 dashboards">
             <h1 class="dashboards-headings">Manage Galleries</h1>
@@ -121,6 +123,32 @@
                 </table>
             </div>
             <a th:href="@{/admin/users/new}" class="btn buttons">Add User</a>
+            <hr class="dashboards-hr" />
+        </div>
+        <div class="col-sm-12 col-md-6 col-xl-4 dashboards">
+            <h1 class="dashboards-headings">Manage Posts</h1>
+            <div th:if="${postObjects.size() > 0}">
+                <table class="table table-fluid table-bordered table-hover dashboard-tables">
+                    <thead>
+                    <tr>
+                        <th>TITLE</th>
+                        <th>DATE</th>
+                        <th>AUTHOR</th>
+                        <th colspan="2">ACTION</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="p : ${postObjects}">
+                        <td th:text="${#strings.abbreviate(p.title, 20)}">content</td>
+                        <td th:text="${#dates.format(p.date, 'yyyy-MM-dd')}">content</td>
+                        <td th:text="${p.author.adminUsername}">content</td>
+                        <td><a th:href="@{'/admin/blog/edit/'+${p.id}}" class="btn buttons buttons-dashboard-table">EDIT</a></td>
+                        <td><a th:href="@{'/admin/blog/delete/'+${p.id}}" class="btn buttons buttons-dashboard-table">DELETE</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a th:href="@{/admin/blog/new}" class="btn buttons">Add Post</a>
             <hr class="dashboards-hr" />
         </div>
     </div>

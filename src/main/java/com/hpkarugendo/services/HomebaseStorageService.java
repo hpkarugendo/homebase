@@ -73,13 +73,17 @@ public class HomebaseStorageService {
         return containerCreated;
     }
 
-    public URI uploadImageToContainer(String container, MultipartFile image){
+    public URI uploadImageToContainer(String container, MultipartFile image) throws URISyntaxException, StorageException {
         URI uri = null;
         CloudBlockBlob blob = null;
 
         if(container != null || !container.isEmpty() && !image.isEmpty()){
             try {
                 cloudBlobContainer = cloudBlobClient.getContainerReference(container);
+                if(!cloudBlobContainer.exists()){
+                    createContainer(container);
+                    cloudBlobContainer = cloudBlobClient.getContainerReference(container);
+                }
                 blob = cloudBlobContainer.getBlockBlobReference(image.getOriginalFilename().replace("_", ""));
                 blob.upload(image.getInputStream(), -1);
                 uri = blob.getUri();
@@ -93,6 +97,16 @@ public class HomebaseStorageService {
         }
 
         return uri;
+    }
+
+    public String getSavedImageUrl(String container, MultipartFile file) throws URISyntaxException, StorageException {
+        String origin = uploadImageToContainer(container, file).toString();
+
+        String replacer = "https://homebase-3113.azureedge.net";
+        String toReplace = origin.substring(44, origin.length());
+        String ans = replacer + toReplace;
+
+        return ans;
     }
 
     public List<URI> uploadImagesToContainer(String container, MultipartFile[] images){
