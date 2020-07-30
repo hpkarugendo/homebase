@@ -122,14 +122,6 @@ p {
     font-size: 15px;
 }
 
-.card-title {
-    font-size: 15px;
-}
-
-.card-text {
-    font-size: 11px;
-}
-
 .img-profile {
     width: 50%;
     height: auto;
@@ -173,10 +165,6 @@ p {
 
 .home-body {
     padding: 1vw;
-}
-
-.projects-body {
-    padding: 2rem;
 }
 
 .home-sections {
@@ -249,8 +237,16 @@ p {
 
 .card {
     margin-bottom: 1rem;
-    background: none;
     border-color: #cacfd2;
+    background-color: #212121;
+}
+
+.card-title {
+    font-size: 15px;
+}
+
+.card-text {
+    font-size: 11px;
 }
 
 .carousel-caption > a > h3 {
@@ -449,7 +445,7 @@ textarea {
 
 .post-img {
     width: 100%;
-    height: 400px;
+    height: auto;
 }
 
 .post-img-link {

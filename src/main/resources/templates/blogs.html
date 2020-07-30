@@ -54,7 +54,7 @@
     </div>
     <div th:if="${bYes} == true" class="blogs-inner">
         <div class="row blogs-item mb-5 pt-2">
-            <div th:each="p : ${posts}" class="col-sm-12 blog-main-posts">
+            <div th:each="p : ${posts}" class="col-sm-12 blog-main-posts mb-1">
                 <img th:src="${p.imageUrl}" th:alt="${p.title}" class="blog-main-img">
                 <h1 th:text="${p.title}" class="text-center blogs-item-title">title</h1>
                 <p th:text="${p.exerpt}" class="blogs-item-ex">exerpt</p>
