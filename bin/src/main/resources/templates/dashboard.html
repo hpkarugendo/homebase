@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173494959-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-173494959-1');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/styles_dark.css}" />
+    <title>Dashboard</title>
+</head>
+<body>
+<div class="header">
+    <nav class="navbar navbar-expand-sm my-navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a th:href="@{/home}"><img th:src="@{/images/homebase_logo_dark.png}" alt="Logo Image" class="img-navbar"></a>
+            </div>
+            <button class="navbar-toggler" id="menu-b" type="button" data-toggle="collapse" data-target="#my-nav" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle Navigation">
+                <span>MENU <i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="my-nav">
+                <div class="navbar-nav ml-auto">
+                    <a th:href="@{/home}" class="nav-item nav-link">Home</a>
+                    <a th:href="@{/profile}" class="nav-item nav-link">Profile</a>
+                    <a th:href="@{/projects}" class="nav-item nav-link">Projects</a>
+                    <a th:href="@{/galleries}" class="nav-item nav-link">Galleries</a>
+                    <a th:href="@{/blog}" class="nav-item nav-link">Blog</a>
+                    <a th:href="@{/admin/dashboard}" class="nav-item nav-link active">Manage</a>
+                    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post"><button type="submit" class="btn btn-logout"><i class="fas fa-users-cog"></i> Out</button></form>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="container-fluid dashboard-main">
+    <div th:if="${mSg}" class="alert my-alert alert-dismissible my-3 fade show" role="alert">
+        <span th:text="${mSg}">message</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <h1 th:text="${user.adminFullName}" class="display-5 text-center">user</h1>
+    <hr />
+    <div class="row dashboard-inner">
+        <div class="col-sm-12 col-md-6 col-xl-4 dashboards">
+            <h1 class="dashboards-headings">Manage Galleries</h1>
+            <div th:if="${galleryObjects.size() > 0}">
+                <table class="table table-fluid table-bordered table-hover dashboard-tables">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>PICS</th>
+                            <th colspan="2">ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="g : ${galleryObjects}">
+                            <td th:text="${g.name}">content</td>
+                            <td th:text="${g.photos.size()}">content</td>
+                            <td><a th:href="@{'/admin/photos/new?id='+${g.id}}" class="btn buttons buttons-dashboard-table">ADD PICS</a></td>
+                            <td><a th:href="@{'/admin/galleries/delete/'+${g.id}}" class="btn buttons buttons-dashboard-table">DELETE</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a th:href="@{/admin/galleries/new}" class="btn buttons galleries-as">Create Gallery</a>
+            <hr class="dashboards-hr" />
+        </div>
+        <div class="col-sm-12 col-md-6 col-xl-4 dashboards">
+            <h1 class="dashboards-headings">Manage Photos</h1>
+            <div th:if="${photoObjects.size() > 0}">
+                <table class="table table-fluid table-bordered table-hover dashboard-tables">
+                    <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>GALLERY</th>
+                        <th colspan="2">ACTION</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="p : ${photoObjects}">
+                        <td th:text="${p.name}">content</td>
+                        <td th:text="${p.gallery.name}">content</td>
+                        <td><a th:href="@{'/galleries/images/'+${p.id}}" class="btn buttons buttons-dashboard-table">VIEW</a></td>
+                        <td><a th:href="@{'/admin/photos/delete/'+${p.id}}" class="btn buttons buttons-dashboard-table">DELETE</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a th:href="@{/admin/photos/new}" class="btn buttons galleries-as">Upload Photos</a>
+            <hr class="dashboards-hr" />
+        </div>
+        <div class="col-sm-12 col-md-6 col-xl-4 dashboards">
+            <h1 class="dashboards-headings">Manage Users</h1>
+            <div th:if="${userObjects.size() > 0}">
+                <table class="table table-fluid table-bordered table-hover dashboard-tables">
+                    <thead>
+                    <tr>
+                        <th>USERNAME</th>
+                        <th>DATE JOINED</th>
+                        <th colspan="2">ACTION</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="u : ${userObjects}">
+                        <td th:text="${u.adminUsername}">content</td>
+                        <td th:text="${u.adminJoined}">content</td>
+                        <td><a th:href="@{'/admin/users/edisable/'+${u.adminId}}" th:text="${u.isEnabled() ? 'DISABLE' : 'ENABLE'}" class="btn buttons buttons-dashboard-table">DISABLE</a></td>
+                        <td><a th:href="@{'/admin/users/delete?id='+${u.adminId}}" class="btn buttons buttons-dashboard-table">DELETE</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a th:href="@{/admin/users/new}" class="btn buttons">Add User</a>
+            <hr class="dashboards-hr" />
+        </div>
+        <div class="col-sm-12 col-md-6 col-xl-4 dashboards">
+            <h1 class="dashboards-headings">Manage Posts</h1>
+            <div th:if="${postObjects.size() > 0}">
+                <table class="table table-fluid table-bordered table-hover dashboard-tables">
+                    <thead>
+                    <tr>
+                        <th>TITLE</th>
+                        <th>DATE</th>
+                        <th>AUTHOR</th>
+                        <th colspan="2">ACTION</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="p : ${postObjects}">
+                        <td th:text="${#strings.abbreviate(p.title, 20)}">content</td>
+                        <td th:text="${#dates.format(p.date, 'yyyy-MM-dd')}">content</td>
+                        <td th:text="${p.author.adminUsername}">content</td>
+                        <td><a th:href="@{'/admin/blog/edit/'+${p.id}}" class="btn buttons buttons-dashboard-table">EDIT</a></td>
+                        <td><a th:href="@{'/admin/blog/delete/'+${p.id}}" class="btn buttons buttons-dashboard-table">DELETE</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a th:href="@{/admin/blog/new}" class="btn buttons">Add Post</a>
+            <hr class="dashboards-hr" />
+        </div>
+    </div>
+</div>
+
+<div class="fixed-bottom justify-content-between px-3 footer">
+    <div><p class="footer-p">Copyright Henry Patrick Karugendo &copy;2020</p></div>
+    <div>
+        <a href="https://github.com/hpkarugendo" class="footer-links"><i class="fab fa-github-square"></i> <span class="footer-link-texts">github</span></a>
+        <a href="https://www.facebook.com/people/Henry-Karugendo/100011283193162" class="footer-links"><i class="fab fa-facebook-square"></i> <span class="footer-link-texts">facebook</span></a>
+        <a href="https://www.linkedin.com/in/hpkarugendo" class="footer-links"><i class="fab fa-linkedin"></i> <span class="footer-link-texts">linkedin</span></a>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/fa70358927.js" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/js/scripts.js}"></script>
+</body>
+</html>

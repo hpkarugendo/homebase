@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173494959-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-173494959-1');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/styles_dark.css}" />
+    <title>Profile Page for Henry Patrick Karugendo</title>
+    <meta name="description" content="Introduction and quick History about me" />
+    <meta http-equiv="author" content="Henry Patrick Karugendo" />
+</head>
+<body>
+<div class="header">
+    <nav class="navbar navbar-expand-sm my-navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a th:href="@{/home}"><img th:src="@{/images/homebase_logo_dark.png}" alt="Logo Image" class="img-navbar"></a>
+            </div>
+            <button class="navbar-toggler" id="menu-b" type="button" data-toggle="collapse" data-target="#my-nav" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle Navigation">
+                <span>MENU <i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="my-nav">
+                <div class="navbar-nav ml-auto">
+                    <a th:href="@{/home}" class="nav-item nav-link">Home</a>
+                    <a th:href="@{/profile}" class="nav-item nav-link active">Profile</a>
+                    <a th:href="@{/projects}" class="nav-item nav-link">Projects</a>
+                    <a th:href="@{/galleries}" class="nav-item nav-link">Galleries</a>
+                    <a th:href="@{/blog}" class="nav-item nav-link">Blog</a>
+                    <a th:href="@{/admin/dashboard}" class="nav-item nav-link">Manage</a>
+                    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post"><button type="submit" class="btn btn-logout"><i class="fas fa-users-cog"></i> Out</button></form>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="container home-main">
+    <div class="profile-nav-pills">
+        <nav>
+            <a href="#profile-intro" class="btn profile-nav-links">Introduction</a>
+            <a href="#profile-education" class="btn profile-nav-links">Education</a>
+            <a href="#profile-skills" class="btn profile-nav-links">Skills</a>
+            <a href="#profile-work" class="btn profile-nav-links">Experience</a>
+            <a href="#profile-hobbies" class="btn profile-nav-links">Interests</a>
+        </nav>
+    </div>
+    <div class="row home-body">
+        <div class="col-sm-12 home-sections">
+            <div class="col-sm-12 home-sections-bg">
+                <h1 onclick="toggleContent('profile-intro')" class="home-sections-headings profile-headings"><i class="fas fa-sort-down"></i> Introduction</h1>
+            </div>
+            <div class="col-sm-12 profile-contents" id="profile-intro">
+                <div class="my-profile-img">
+                    <img th:src="@{/images/homebase_profile_intro.jpg}" alt="My Profile Photo" class="img-responsive img-profile">
+                </div>
+                <p class="home-sections-paras">Hello again!</p>
+                <p class="home-sections-paras">My full name is Henry Patrick Karugendo. I have spent most of my life in Ireland but I was not born here. That was Uganda in the East of Africa also known as the pearl of Africa! I came to Ireland in 2000 and as such you can say I am more Irish than anything really!</p>
+                <p class="home-sections-paras">Interestingly I do not have an accent so don’t be surprised when we meet and there is no Dubliner accent to be heard! There is many reasons for this but the main one being that I am a quiet person by nature! I am also quite laid back! Unless I am invited by friends, I will not go out partying and clubbing! While that might mean that I am a Gamer or anti-social, that is not the case!</p>
+                <p class="home-sections-paras">I rarely game, just an FPS once in a blue moon, usually COD series! No, most of my time is spent tinkering with Eclipse or IntelliJ and Java when I am not watching some movie or Japanese reality show (another reason why I have no accent, I spend a lot of time watching foreign shows).</p>
+                <p class="home-sections-paras">You see I have an interest in foreign culture, like most people, Japan first of all! In fact I visited Tokyo two years ago and took some pics so visit the gallery to have a look! My trip there is what got me started in Photography too which is why I bought my very first DSLR to take with me on that trip! That was also the first time I went out of Dublin since I got here!</p>
+                <p class="home-sections-paras">I consider myself friendly unless given a big reason to be on guard, dedicate a lot to my work, which is one of the reasons why I am still working at my current employer. Another reason is that, I am finding it hard to get a job relevant to my degree. I guess I was naïve to think I was set once I got one!</p>
+                <p class="home-sections-paras">I have not given up yet on finding my dream job which is of course a Java Developer and eventually moving on to be an Analyst Manager! While I make my way to that dream, I will be here tinkering with Java, watching movies, getting lost in other cultures and enjoying life!</p>
+            </div>
+        </div>
+        <div class="col-sm-12 home-sections">
+            <div class="col-sm-12 home-sections-bg">
+                <h1 onclick="toggleContent('profile-education')" class="home-sections-headings profile-headings"><i class="fas fa-sort-down"></i> Education</h1>
+            </div>
+            <div class="col-sm-12 profile-contents" id="profile-education">
+                <p class="home-sections-paras"><i class="fas fa-school"></i> Dublin Institute of Technology <br /> <small><i class="fas fa-user-graduate"></i>  BSc. Information Technology</small></p>
+                <table class="table table-fluid table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <th>YEAR 1</th>
+                        <th>YEAR 2</th>
+                        <th>YEAR 3</th>
+                        <th>YEAR 4</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Basic Statistics</td>
+                        <td>Communications</td>
+                        <td>Business Modelling</td>
+                        <td>Distributed Systems</td>
+                    </tr>
+                    <tr>
+                        <td>Communications</td>
+                        <td>Advanced Databases</td>
+                        <td>Communications and Teamwork</td>
+                        <td>Final Year Project</td>
+                    </tr>
+                    <tr>
+                        <td>Financial Accounting</td>
+                        <td>Algorythms & Data Structures I</td>
+                        <td>Dynamic Programming Language</td>
+                        <td>Software Quality Assurance</td>
+                    </tr>
+                    <tr>
+                        <td>Intro to Computing and Multimedia</td>
+                        <td>Algorythms & Data Structures II</td>
+                        <td>Enterprise Database Systems</td>
+                        <td>Strategic Info Systems</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing I</td>
+                        <td>Database Fundamentals</td>
+                        <td>Info Management for Data Science</td>
+                        <td>Strategic Managemment</td>
+                    </tr>
+                    <tr>
+                        <td>OO Software Development I</td>
+                        <td>Finance</td>
+                        <td>Project Management</td>
+                        <td>Mobile Application Development</td>
+                    </tr>
+                    <tr>
+                        <td>Principles of Management I</td>
+                        <td>Inferential Statistics</td>
+                        <td>Web Development I (Java)</td>
+                        <td>Software Patterns</td>
+                    </tr>
+                    <tr>
+                        <td>Problem Solving and Design</td>
+                        <td>Management Accounting</td>
+                        <td>Business Decision Making</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Quantiative Methods</td>
+                        <td>OO Software Development II</td>
+                        <td>Clientside Web Development</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Technology Fundamentals</td>
+                        <td>OO Software Development III</td>
+                        <td>Entrepreneurship</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Organisational Behaviour</td>
+                        <td>Management of Info Systems</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Supply Chain Management</td>
+                        <td>Organisational Change</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Supply Chain Methods</td>
+                        <td>Web Development II</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Work Placement</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <hr />
+                <p class="home-sections-paras"><i class="fas fa-school"></i> Pierce College <br /> <small><i class="fas fa-award"></i> Level 5 and Level 6 Certificates</small></p>
+                <table class="table table-fluid table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <th>BUSINESS THROUGH COMPUTING (5)</th>
+                        <th>ADVANCED COMPUTER SKILLS (6)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Speadsheet Methods</td>
+                        <td>Payroll</td>
+                    </tr>
+                    <tr>
+                        <td>Web Authoring</td>
+                        <td>Word Processing</td>
+                    </tr>
+                    <tr>
+                        <td>The Internet</td>
+                        <td>Relational Databases</td>
+                    </tr>
+                    <tr>
+                        <td>Communications</td>
+                        <td>Professional Presentation</td>
+                    </tr>
+                    <tr>
+                        <td>Payroll</td>
+                        <td>Business Management</td>
+                    </tr>
+                    <tr>
+                        <td>Book Keeping</td>
+                        <td>Communications</td>
+                    </tr>
+                    <tr>
+                        <td>eBusiness Studies</td>
+                        <td>Work Experience</td>
+                    </tr>
+                    <tr>
+                        <td>Work Experience</td>
+                        <td>Train the Trainer</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <hr />
+                <p class="home-sections-paras"><i class="fas fa-school"></i> Templeogue College <br /> <small><i class="fas fa-award"></i> Leaving Certificate</small></p>
+                <table class="table table-fluid table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <th>SUBJECT</th>
+                        <th>LEVEL</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Maths</td>
+                        <td>Ordinary</td>
+                    </tr>
+                    <tr>
+                        <td>English</td>
+                        <td>Ordinary</td>
+                    </tr>
+                    <tr>
+                        <td>Physics</td>
+                        <td>Advanced</td>
+                    </tr>
+                    <tr>
+                        <td>Chemistry</td>
+                        <td>Advanced</td>
+                    </tr>
+                    <tr>
+                        <td>Biology</td>
+                        <td>Advanced</td>
+                    </tr>
+                    <tr>
+                        <td>French</td>
+                        <td>Advanced</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-12 home-sections">
+            <div class="col-sm-12 home-sections-bg">
+                <h1 onclick="toggleContent('profile-skills')" class="home-sections-headings profile-headings"><i class="fas fa-sort-down"></i> Skills</h1>
+            </div>
+            <div class="col-sm-12  profile-contents" id="profile-skills">
+                <ul class="tree-pills profile-skills">
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">Java</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">Object Oriented Programming</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">Spring Boot Framework</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">Communication</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">Customer Relations</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">Teamwork</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">Leadership</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">Training</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">Web Development</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">SQL</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">Android Mobile Development</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">Software Quality Assurance / Testing</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">HTML</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">JavaScript</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">CSS</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-skill">Photoshop</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-12 home-sections">
+            <div class="col-sm-12 home-sections-bg">
+                <h1 onclick="toggleContent('profile-work')" class="home-sections-headings profile-headings"><i class="fas fa-sort-down"></i> Work Experience</h1>
+            </div>
+            <div class="col-sm-12 profile-contents"  id="profile-work">
+                <p class="home-sections-paras"><i class="fas fa-building"></i> Academy Plaza Hotel Dublin (Current) <br />
+                    <small><i class="fas fa-file-signature"></i> Senior Front-House Porter</small>
+                </p>
+                <ul class="tree-pills">
+                    <li class="badge badge-pill badge-dark tree-pill">Conferences (preparation and servicing)</li>
+                    <li class="badge badge-pill badge-dark tree-pill">Porterage</li>
+                    <li class="badge badge-pill badge-dark tree-pill">Lobby Maintenance</li>
+                    <li class="badge badge-pill badge-dark tree-pill">Customer Technical Support</li>
+                    <li class="badge badge-pill badge-dark tree-pill">Deliveries</li>
+                    <li class="badge badge-pill badge-dark tree-pill">Personnel Training</li>
+                    <li class="badge badge-pill badge-dark tree-pill">Perimeter maintenance</li>
+                    <li class="badge badge-pill badge-dark tree-pill">Reception Extra</li>
+                </ul>
+                <hr />
+                <p class="home-sections-paras"><i class="fas fa-building"></i> Irish Water <br />
+                    <small><i class="fas fa-file-signature"></i> IT Intern</small>
+                </p>
+                <ul class="tree-pills">
+                    <li class="badge badge-pill badge-dark tree-pill">Software Testing</li>
+                    <li class="badge badge-pill badge-dark tree-pill">Content Management</li>
+                    <li class="badge badge-pill badge-dark tree-pill">Light Task Support</li>
+                    <li class="badge badge-pill badge-dark tree-pill">SI Meetings Attendance</li>
+                </ul>
+                <hr />
+                <p class="home-sections-paras"><i class="fas fa-building"></i> Camara Ltd <br />
+                    <small><i class="fas fa-file-signature"></i> Systems Building</small>
+                </p>
+                <ul class="tree-pills">
+                    <li class="badge badge-pill badge-dark tree-pill">Hardware Evaluation</li>
+                    <li class="badge badge-pill badge-dark tree-pill">System Building</li>
+                    <li class="badge badge-pill badge-dark tree-pill">PC Maintenance</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-12 home-sections">
+            <div class="col-sm-12 home-sections-bg">
+                <h1  onclick="toggleContent('profile-hobbies')" class="home-sections-headings profile-headings"><i class="fas fa-sort-down"></i> Interests </h1>
+            </div>
+            <div class="col-sm-12  profile-contents" id="profile-hobbies">
+                <ul class="tree-pills profile-hobbies">
+                    <li class="badge badge-pill badge-dark tree-pill profile-hobby">Technology (Computing)</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-hobby">Photography</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-hobby">Movies</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-hobby">Health (Foods)</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-hobby">Cooking</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-hobby">Asian Culture</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-hobby">Zack Snyder</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-hobby">PC Building</li>
+                    <li class="badge badge-pill badge-dark tree-pill profile-hobby">PC Tech YouTube Channels and Blogs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="fixed-bottom justify-content-between px-3 footer">
+    <div><p class="footer-p">Copyright Henry Patrick Karugendo &copy;2020</p></div>
+    <div>
+        <a href="https://github.com/hpkarugendo" class="footer-links"><i class="fab fa-github-square"></i> <span class="footer-link-texts">github</span></a>
+        <a href="https://www.facebook.com/people/Henry-Karugendo/100011283193162" class="footer-links"><i class="fab fa-facebook-square"></i> <span class="footer-link-texts">facebook</span></a>
+        <a href="https://www.linkedin.com/in/hpkarugendo" class="footer-links"><i class="fab fa-linkedin"></i> <span class="footer-link-texts">linkedin</span></a>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/fa70358927.js" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/js/scripts.js}"></script>
+</body>
+</html>

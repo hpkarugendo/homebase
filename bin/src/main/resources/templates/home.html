@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173494959-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-173494959-1');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/styles_dark.css}" />
+    <title>Main Section | HPKarugendo</title>
+    <meta name="description" content="Personal Website Built with Spring Boot!" />
+    <meta http-equiv="author" content="Henry Patrick Karugendo" />
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar navbar-expand-sm my-navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a th:href="@{/home}"><img th:src="@{/images/homebase_logo_dark.png}" alt="Logo Image" class="img-navbar"></a>
+                </div>
+                <button class="navbar-toggler" id="menu-b" type="button" data-toggle="collapse" data-target="#my-nav" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle Navigation">
+                    <span>MENU <i class="fas fa-bars"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="my-nav">
+                    <div class="navbar-nav ml-auto">
+                        <a th:href="@{/home}" class="nav-item nav-link active">Home</a>
+                        <a th:href="@{/profile}" class="nav-item nav-link">Profile</a>
+                        <a th:href="@{/projects}" class="nav-item nav-link">Projects</a>
+                        <a th:href="@{/galleries}" class="nav-item nav-link">Galleries</a>
+                        <a th:href="@{/blog}" class="nav-item nav-link">Blog</a>
+                        <a th:href="@{/admin/dashboard}" class="nav-item nav-link">Manage</a>
+                        <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post"><button type="submit" class="btn btn-logout"><i class="fas fa-users-cog"></i> Out</button></form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container home-main">
+        <div class="row home-body">
+            <div class="alert" th:if="${param.logout}">
+                You have been logged out.
+            </div>
+            <div class="col-sm-12 home-only-sections home-sections-profile" id="home-profile">
+                <div class="col-sm-12 home-sections-bg">
+                    <h1 class="home-sections-headings"><a th:href="@{/profile}" class="home-section-links">Profile</a></h1>
+                </div>
+                <div class="col-sm-12 home-contents home-contents-profile">
+                    <div class="col-sm-6">
+                        <a th:href="@{/profile}" class="home-section-links"><img th:src="@{/images/homebase_home_profile.jpg}" alt="home profile image" class="img img-responsive home-section-images"></a>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="home-sections-paras home-only-paras">You will find information about me here. Education, Skills and all that Professional Stuff!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 home-only-sections home-sections-projects" id="home-projects">
+                <div class="col-sm-12 home-sections-bg">
+                    <h1 class="home-sections-headings"><a th:href="@{/projects}" class="home-section-links">Projects</a></h1>
+                </div>
+                <div class="col-sm-12 home-contents home-contents-projects">
+                    <div class="col-sm-6">
+                        <a th:href="@{/projects}" class="home-section-links"><img th:src="@{/images/homebase_home_projects.jpg}" alt="home projects image" class="img img-responsive home-section-images"></a>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="home-sections-paras home-only-paras">Here you will find some projects I've worked on myself with educational and self taught knowledge!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 home-only-sections home-sections-galleries" id="home-galleries">
+                <div class="col-sm-12 home-sections-bg">
+                    <h1 class="home-sections-headings"><a th:href="@{/galleries}" class="home-section-links">Galleries</a></h1>
+                </div>
+                <div class="col-sm-12 home-contents home-contents-galleries">
+                    <div class="col-sm-6">
+                        <a th:href="@{/galleries}" class="home-section-links"><img th:src="@{/images/homebase_home_galleries.jpg}" alt="home galleries image" class="img img-responsive home-section-images"></a>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="home-sections-paras home-only-paras">Some personal photos I've taken and feel like sharing! Like from Holidays and local places etc...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 home-only-sections home-sections-blog" id="home-blog">
+                <div class="col-sm-12 home-sections-bg">
+                    <h1 class="home-sections-headings"><a th:href="@{/blog}" class="home-section-links">Blog</a></h1>
+                </div>
+                <div class="col-sm-12 home-contents home-contents-blog">
+                    <div class="col-sm-6">
+                        <a th:href="@{/blog}" class="home-section-links"><img th:src="@{/images/homebase_home_blog.jpg}" alt="home blog image" class="img home-section-images home-contents-items"></a>
+                    </div>
+                    <div class="col-sm-6"><p class="home-sections-paras home-only-paras home-contents-items">If I feel like sharing an opinion or just putting off some steam, I'll do it here.</p></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="fixed-bottom justify-content-between px-3 footer">
+        <div><p class="footer-p">Copyright Henry Patrick Karugendo &copy;2020</p></div>
+        <div>
+            <a href="https://github.com/hpkarugendo" class="footer-links"><i class="fab fa-github-square"></i> <span class="footer-link-texts">github</span></a>
+            <a href="https://www.facebook.com/people/Henry-Karugendo/100011283193162" class="footer-links"><i class="fab fa-facebook-square"></i> <span class="footer-link-texts">facebook</span></a>
+            <a href="https://www.linkedin.com/in/hpkarugendo" class="footer-links"><i class="fab fa-linkedin"></i> <span class="footer-link-texts">linkedin</span></a>
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/fa70358927.js" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/js/scripts.js}"></script>
+</body>
+</html>
