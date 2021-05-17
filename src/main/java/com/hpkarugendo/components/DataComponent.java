@@ -1,9 +1,14 @@
 package com.hpkarugendo.components;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.hpkarugendo.models.BlogPostCategory;
 import com.hpkarugendo.models.Gallery;
 import com.hpkarugendo.models.SiteAdmin;
+import com.hpkarugendo.projects.quiz.Answer;
+import com.hpkarugendo.projects.quiz.Question;
+import com.hpkarugendo.projects.quiz.QuizData;
 import com.hpkarugendo.services.BlogPostService;
 import com.hpkarugendo.services.HomebaseStorageService;
 import com.hpkarugendo.services.SiteAdminService;

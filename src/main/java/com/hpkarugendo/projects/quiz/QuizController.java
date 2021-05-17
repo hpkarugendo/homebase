@@ -1,6 +1,7 @@
 package com.hpkarugendo.projects.quiz;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Random;
@@ -8,6 +9,7 @@ import java.util.Random;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -73,11 +75,12 @@ public class QuizController {
 	private void setupData() {
 		//Project 1 - Quiz - Data Prep
         try {
-            File f = new ClassPathResource("static/files/data.txt").getFile();
+            ClassPathResource f = new ClassPathResource("static/files/data.txt");
             String data = "";
-            System.out.println("FILE SIZE IS: " + f.length());
+            byte[] bdata = FileCopyUtils.copyToByteArray(f.getInputStream());
+            data = new String(bdata, StandardCharsets.UTF_8);
+            System.out.println("FILE SIZE IS: " + bdata.length);
             System.out.println("PREPARING DATA...");
-            data = new String(Files.readAllBytes(Paths.get(f.toURI())));
             String[] breakUpQuestions = data.split("[|]");
             Question q0;
             Answer a0, b0, c0, d0;
