@@ -200,6 +200,11 @@ p {
     margin: 0;
 }
 
+#projects-quiz-np {
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
 .home-section-links {
     text-decoration: none;
     color: #f8f9f9;
@@ -484,7 +489,7 @@ Here we start the responsive designs!
 @media (min-width: 576px) {
 
     .card {
-        min-height: 400px;
+        min-height: 420px;
     }
 
     .card-title {
@@ -577,7 +582,7 @@ Here we start the responsive designs!
     }
 
     .card {
-        min-height: 420px;
+        min-height: 460px;
     }
 
     .buttons-dashboard-table {
@@ -620,7 +625,7 @@ Here we start the responsive designs!
     }
 
     .card {
-        min-height: 450px;
+        min-height: 480px;
     }
 
     .card-title {
@@ -744,7 +749,7 @@ Here we start the responsive designs!
     }
 
     .card {
-        min-height: 640px;
+        min-height: 666px;
     }
 
     .buttons-dashboard-table {

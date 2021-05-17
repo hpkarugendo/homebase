@@ -1,18 +1,19 @@
 package com.hpkarugendo.components;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.hpkarugendo.models.BlogPostCategory;
 import com.hpkarugendo.models.Gallery;
 import com.hpkarugendo.models.SiteAdmin;
 import com.hpkarugendo.services.BlogPostService;
 import com.hpkarugendo.services.HomebaseStorageService;
 import com.hpkarugendo.services.SiteAdminService;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 @Transactional
