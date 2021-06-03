@@ -15,7 +15,7 @@
     <description>My Personal Website created using Spring Boot, Thymeleaf, and hosted by Microsoft Azure</description>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>16</java.version>
         <azure.version>2.3.5</azure.version>
     </properties>
 

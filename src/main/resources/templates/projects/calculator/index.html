@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Calculator</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" th:href="@{/css/projects_calculator.css}">
+</head>
+<body>
+	<h2 class="text-center text-white bg-dark my-heading pt-3 pb-4">Simple
+		Calculator</h2>
+	<div class="container calculator-main-div">
+		<form th:action="@{/projects/calculator/problem}" th:object="${calObject}" method="post"
+			class="form">
+			<div id="display-div" class="row mb-1">
+				<div class="col display-col">
+					<p id="display-text-heading"
+						th:text="${calObject.msg != null ? calObject.msg : calObject.problem}"
+						class="text-secondary text-right mb-0 display-text">Problem/Solution</p>
+					<input type="text" th:field="*{solution}" id="display-text-value"
+						class="form-control text-right display-text" onfocus="bluh()"
+						onkeydown="return false">
+				</div>
+			</div>
+			<div id="buttons-div" class="row mb-1">
+				<div class="col-3">
+					<input type="button" onclick="readValue('1')"
+						class="btn btn-lg btn-block mb-3" value="1">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('2')"
+						class="btn btn-lg btn-block" value="2">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('3')"
+						class="btn btn-lg btn-block" value="3">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('/')"
+						class="btn btn-lg btn-block btn-secondary" value="/">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('4')"
+						class="btn btn-lg btn-block mb-3" value="4">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('5')"
+						class="btn btn-lg btn-block" value="5">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('6')"
+						class="btn btn-lg btn-block" value="6">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('*')"
+						class="btn btn-lg btn-block btn-secondary" value="*">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('7')"
+						class="btn btn-lg btn-block mb-3" value="7">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('8')"
+						class="btn btn-lg btn-block" value="8">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('9')"
+						class="btn btn-lg btn-block" value="9">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('-')"
+						class="btn btn-lg btn-block btn-secondary" value="-">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="clearValue()"
+						class="btn btn-lg btn-block btn-secondary mb-3" value="C">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('.')"
+						class="btn btn-lg btn-block btn-secondary" value=".">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('0')"
+						class="btn btn-lg btn-block" value="0">
+				</div>
+				<div class="col-3">
+					<input type="button" onclick="readValue('+')"
+						class="btn btn-lg btn-block btn-secondary" value="+">
+				</div>
+			</div>
+			<div id="submit-div" class="row mb-1">
+				<div class="col">
+					<input type="submit" value="="
+						class="btn btn-lg btn-block btn-dark">
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="footer w-100">
+		<p class="text-center text-info my-footer">Henry Patrick Karugendo
+			&copy;2021</p>
+		<p class="text-center text-link my-footer"><a th:href="@{/projects}"><i class="bi bi-arrow-left-square-fill"></i>back to PROJECTS</a></p>
+	</div>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script th:src="@{/js/calculator.js}"></script>
+</body>
+</html>
