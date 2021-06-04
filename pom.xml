@@ -10,12 +10,12 @@
     </parent>
     <groupId>com.hpkarugendo</groupId>
     <artifactId>homebase</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
     <name>homebase</name>
     <description>My Personal Website created using Spring Boot, Thymeleaf, and hosted by Microsoft Azure</description>
 
     <properties>
-        <java.version>16</java.version>
+        <java.version>11</java.version>
         <azure.version>2.3.5</azure.version>
     </properties>
 
